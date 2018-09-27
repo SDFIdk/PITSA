@@ -127,9 +127,15 @@ def plot(ctx, shapefile, pointid):
     click.secho(pointid, fg="red")
     click.echo("")
     click.secho("Existing parameters:", fg="green")
+    if "V_STD_V" in f["properties"]:
+        std_v = f["properties"]["V_STD_V"]
+    elif "V_STDEV" in f["properties"]:
+        std_v = f["properties"]["V_STD_V"]
+    else:
+        std_v = None
     click.echo(
         "Velocity {vel} +/- {std}\n".format(
-            vel=f["properties"]["VEL_V"], std=f["properties"]["V_STD_V"]
+            vel=f["properties"]["VEL_V"], std=std_v
         )
     )
 
@@ -201,13 +207,20 @@ def stats(ctx, src_file, dst_file):
                     slope, intercept, r_value, _, _ = linregress(x, y)
                     amplitude, period, phase = sin_fit(x, y, intercept, slope)
 
+                    if "V_STD_V" in f["properties"]:
+                        std_v = f["properties"]["V_STD_V"]
+                    elif "V_STDEV" in f["properties"]:
+                        std_v = f["properties"]["V_STD_V"]
+                    else:
+                        std_v = None
+
                     rec = {
                         "geometry": f["geometry"],
                         "id": f["id"],
                         "properties": {
                             "CODE": f["properties"]["CODE"],
                             "VEL_V": f["properties"]["VEL_V"],
-                            "V_STD_V": f["properties"]["V_STD_V"],
+                            "V_STD_V": std_v,
                             "SLOPE": slope,
                             "SLOPE_R": r_value,
                             "PERIOD": period.val,
