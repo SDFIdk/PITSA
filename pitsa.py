@@ -9,6 +9,7 @@ Interesting points:
 
 """
 import math
+import re
 import functools
 from datetime import datetime
 from collections import namedtuple
@@ -75,6 +76,8 @@ def parse_time_series(f: dict, dt_start: datetime, dt_stop: datetime) -> tuple:
     y = []
     for key, value in f["properties"].items():
         if key.startswith("D"):
+            if value is None: # apparently some time series values do not exist
+                continue
             dt = datetime.strptime(key.replace("D", ""), "%Y%m%d")
             if dt > dt_start and dt < dt_stop:
                 # convert to decimal years
@@ -126,18 +129,12 @@ def plot(ctx, shapefile, pointid):
     click.echo("\nPlotting point ", nl=False)
     click.secho(pointid, fg="red")
     click.echo("")
-    click.secho("Existing parameters:", fg="green")
-    if "V_STD_V" in f["properties"]:
-        std_v = f["properties"]["V_STD_V"]
-    elif "V_STDEV" in f["properties"]:
-        std_v = f["properties"]["V_STD_V"]
-    else:
-        std_v = None
-    click.echo(
-        "Velocity {vel} +/- {std}\n".format(
-            vel=f["properties"]["VEL_V"], std=std_v
-        )
-    )
+    click.secho("Existing attributes:", fg="green")
+    #print(f['properties'])
+    for attrib, value in f['properties'].items():
+        if re.match('D\d{8}', attrib):
+            continue
+        click.secho(f"{attrib}: {value}")
 
     x, y = parse_time_series(f, ctx.obj["start"], ctx.obj["stop"])
 
@@ -180,19 +177,18 @@ def plot(ctx, shapefile, pointid):
 def stats(ctx, src_file, dst_file):
     """Calculate statistics from time series and output result in new file"""
 
-    schema = {
-        "geometry": "Point",
-        "properties": {
-            "CODE": "str",
-            "VEL_V": "float",
-            "V_STD_V": "float",
-            "SLOPE": "float",
-            "SLOPE_R": "float",
-            "PERIOD": "float",
-            "PERIOD_STD": "float",
-        },
-    }
     with fiona.open(src_file, "r") as src:
+        # create a new schema based on the input file. We strip time series
+        # attributes and add a few extra ones containing our own stats
+        schema = src.schema
+        for attrib in list(src.schema['properties'].keys()):
+            if re.match('D\d{8}', attrib):
+                del schema['properties'][attrib]
+
+        schema['properties']["SLOPE"] = "float"
+        schema['properties']["SLOPE_R"] = "float"
+        schema['properties']["PERIOD"] = "float"
+        schema['properties']["PERIOD_STD"] = "float"
 
         with fiona.open(
             dst_file, "w", crs=src.crs, driver=src.driver, schema=schema
@@ -210,7 +206,7 @@ def stats(ctx, src_file, dst_file):
                     if "V_STD_V" in f["properties"]:
                         std_v = f["properties"]["V_STD_V"]
                     elif "V_STDEV" in f["properties"]:
-                        std_v = f["properties"]["V_STD_V"]
+                        std_v = f["properties"]["V_STDEV"]
                     else:
                         std_v = None
 
@@ -218,15 +214,17 @@ def stats(ctx, src_file, dst_file):
                         "geometry": f["geometry"],
                         "id": f["id"],
                         "properties": {
-                            "CODE": f["properties"]["CODE"],
-                            "VEL_V": f["properties"]["VEL_V"],
-                            "V_STD_V": std_v,
                             "SLOPE": slope,
                             "SLOPE_R": r_value,
                             "PERIOD": period.val,
                             "PERIOD_STD": period.stddev,
                         },
                     }
+
+                    for attrib, value in f['properties'].items():
+                        if re.match('D\d{8}', attrib):
+                            continue
+                        rec['properties'][attrib] = value
 
                     dst.write(rec)
 
