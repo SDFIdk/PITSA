@@ -75,29 +75,24 @@ TS_LOS_SCHEMA = {
         "CODE": "str:7",  # Point ID
         "TIME": "float",  # Decimal year of time series entry point
         "VALUE": "float",  # Value of time series
-        "CAL_VALUE": "float" # Calibrated value of time series
+        "CAL_VALUE": "float",  # Calibrated value of time series
     },
 }
 
 TS_2D_SCHEMA = {
     "geometry": "None",
     "properties": {
-        "CODE": "str:7",        # Point ID
-        "TIME": "float",        # Decimal year of time series entry point
-        "EAST": "float",        # Value of east time series
-        "VERT": "float",        # Value of vertical time series
-        "VERT_CAL": "float",    # Value of calibrated vertical time series
+        "CODE": "str:7",  # Point ID
+        "TIME": "float",  # Decimal year of time series entry point
+        "EAST": "float",  # Value of east time series
+        "VERT": "float",  # Value of vertical time series
+        "VERT_CAL": "float",  # Value of calibrated vertical time series
     },
 }
 
 
 def sin_estimator(
-    intercept: float,
-    slope: float,
-    x: np.array,
-    amplitude: float,
-    period: float,
-    phase: float,
+    intercept: float, slope: float, x: np.array, amplitude: float, period: float, phase: float
 ) -> np.array:
     """
     Mathematical description of a sloped sine function for use in curve fitting.
@@ -140,9 +135,7 @@ def parse_dates(f: dict) -> tuple:
     Parses timetags of time series attributs entries of a layer schema
     """
     date = lambda key: datetime.strptime(key.replace("D", ""), "%Y%m%d")
-    decimalyear = lambda dt: (float(dt.strftime("%j")) - 1) / 366 + float(
-        dt.strftime("%Y")
-    )
+    decimalyear = lambda dt: (float(dt.strftime("%j")) - 1) / 366 + float(dt.strftime("%Y"))
     return [decimalyear(date(key)) for key in f["properties"] if key.startswith("D")]
 
 
@@ -208,7 +201,7 @@ def add_los_data(basedir: Path, data_source: ogr.DataSource, ts_source: sqlite3.
                     cal_y = np.array([v for k, v in fc["properties"].items() if k.startswith("D")])
 
                     if ts_source:
-                        code = fr['properties']['CODE']
+                        code = fr["properties"]["CODE"]
                         sql = f"INSERT INTO ts_los(code, time, value, cal_value) VALUES ('{code}', ?, ?, ?)"
                         cur.executemany(sql, zip(time_series_dates, raw_y, cal_y))
                         ts_source.commit()
@@ -242,13 +235,15 @@ def add_2d_data(basedir: Path, data_source: ogr.DataSource, ts_source: sqlite3.C
     vert_shp = basedir["vert"]
     cal_shp = basedir["cal"]
 
-    with fiona.open(str(east_shp), "r") as east, fiona.open(str(vert_shp), "r") as vert, fiona.open(str(cal_shp), "r") as cal:
+    with fiona.open(str(east_shp), "r") as east, fiona.open(str(vert_shp), "r") as vert, fiona.open(
+        str(cal_shp), "r"
+    ) as cal:
         time_series_dates = np.array(parse_dates(east.schema))
         data_source.StartTransaction()
         with click.progressbar(east, label="Adding gridded data") as east_progress:
             iterations = 0
             # assume that raw and calibrated files are of equal lengths
-            for fe, fv, fc in zip(east_progress, vert, cal):  
+            for fe, fv, fc in zip(east_progress, vert, cal):
                 point = ogr.CreateGeometryFromWkt(
                     "POINT({} {})".format(*fe["geometry"]["coordinates"])
                 )
@@ -261,12 +256,18 @@ def add_2d_data(basedir: Path, data_source: ogr.DataSource, ts_source: sqlite3.C
                 feature.SetField("VEL_V_NOUPLIFT", fc["properties"]["VEL_V"])
                 feature.SetField("VEL_STD_V_NOUPLIFT", fc["properties"]["V_STD_V"])
 
-                east_y = np.array([value for key, value in fe["properties"].items() if key.startswith("D")])
-                vert_y = np.array([value for key, value in fv["properties"].items() if key.startswith("D")])
-                cal_y = np.array([value for key, value in fc["properties"].items() if key.startswith("D")])
+                east_y = np.array(
+                    [value for key, value in fe["properties"].items() if key.startswith("D")]
+                )
+                vert_y = np.array(
+                    [value for key, value in fv["properties"].items() if key.startswith("D")]
+                )
+                cal_y = np.array(
+                    [value for key, value in fc["properties"].items() if key.startswith("D")]
+                )
 
                 if ts_source:
-                    code = fv['properties']['CODE']
+                    code = fv["properties"]["CODE"]
                     sql = f"INSERT INTO ts_2d(code, time, east, vert, vert_cal) VALUES ('{code}', ?, ?, ?, ?)"
                     cur.executemany(sql, zip(time_series_dates, east_y, vert_y, cal_y))
                     ts_source.commit()
@@ -304,9 +305,7 @@ def pitsa(ctx, start, stop):
 
 
 @pitsa.command()
-@click.option(
-    "-c", "--calibrated", is_flag=True, help="Plot based on calibrated values"
-)
+@click.option("-c", "--calibrated", is_flag=True, help="Plot based on calibrated values")
 @click.argument("database", type=click.Path(exists=True))
 @click.argument("code")
 @click.pass_context
@@ -317,11 +316,7 @@ def plot(ctx, calibrated, database, code):
     c = conn.cursor()
 
     layer = "ts_point_cal" if calibrated else "ts_point"
-    c.execute(
-        "SELECT time, value from {layer} WHERE CODE ='{code}'".format(
-            code=code, layer=layer
-        )
-    )
+    c.execute("SELECT time, value from {layer} WHERE CODE ='{code}'".format(code=code, layer=layer))
     time_series = c.fetchall()
 
     if not time_series:
@@ -338,17 +333,11 @@ def plot(ctx, calibrated, database, code):
 
     slope, intercept, r_value, _, _ = linregress(x, y)
     click.secho("Linear fit:", fg="green")
-    click.secho(
-        "Velocity = {vel:.2f} mm/year, r = {r:.2f}".format(vel=slope, r=r_value)
-    )
+    click.secho("Velocity = {vel:.2f} mm/year, r = {r:.2f}".format(vel=slope, r=r_value))
 
     amplitude, period, phase = sin_fit(x, y, intercept, slope)
     click.secho("Sine fit:", fg="green")
-    click.secho(
-        "Period = {per:.2f} year +/- {std:.2f}".format(
-            per=period.val, std=period.stddev
-        )
-    )
+    click.secho("Period = {per:.2f} year +/- {std:.2f}".format(per=period.val, std=period.stddev))
 
     # FFT
     y_detrended = y - (slope * x + intercept)
@@ -361,7 +350,7 @@ def plot(ctx, calibrated, database, code):
     ax.plot(x, y, "k.", label="Observations, n={n}".format(n=len(x)))
     ax.plot(x, intercept + slope * x, "r-", label=f"linear fit, r={r_value:.2f}")
     sin_plot = functools.partial(sin_estimator, intercept, slope)
-    #phase = phase.val % (2*math.pi)
+    # phase = phase.val % (2*math.pi)
     phase = phase.val
     y_sin = sin_plot(x, amplitude.val, period.val, phase)
     ax.plot(
@@ -380,25 +369,28 @@ def plot(ctx, calibrated, database, code):
     # peaks in winter -> yyyy.0
     # peaks in summer -> yyyy.5
     peaks = signal.find_peaks(y_sin)
-    half_steps= np.round(x[peaks[0]]*2) / 2
+    half_steps = np.round(x[peaks[0]] * 2) / 2
     season = half_steps - np.floor(half_steps)
     zeros = np.zeros(len(season))
     winter_expansion = np.array_equal(zeros, season)
     print(winter_expansion)
 
-    '''
+    """
     fig2, ax2 = plt.subplots()
     ax2.plot(freq[idx], fourier.real[idx], "r-", freq[idx], fourier.imag[idx], "b-")
     plt.grid()
     plt.xticks(np.arange(-5, 5, step=1))
     plt.xlim([-5, 5])
-    '''
+    """
     plt.show()
+
 
 @pitsa.command()
 @click.argument("basedir", type=click.Path(exists=True))
 @click.argument("data", type=click.Path(exists=False))
-@click.option("--ts", type=click.Path(exists=False), help='Path to Geopackage where times series are stored')
+@click.option(
+    "--ts", type=click.Path(exists=False), help="Path to Geopackage where times series are stored"
+)
 @click.pass_context
 def createdb(ctx, basedir, data, ts):
     """Create a Geopackage database from the base directory of a delivery from TRE"""
@@ -407,41 +399,44 @@ def createdb(ctx, basedir, data, ts):
     # Data will be added mostly by GDAL insertions (fiona is horribly slow when adding
     # entries to database, at least pre version 1.8)
 
-    with fiona.open(data, "w", crs=from_epsg(4326), driver="GPKG", layer="LOS", schema=POINT_SCHEMA) as gpkg:
+    with fiona.open(
+        data, "w", crs=from_epsg(4326), driver="GPKG", layer="LOS", schema=POINT_SCHEMA
+    ) as gpkg:
         pass
 
-    with fiona.open(data, "w", crs=from_epsg(4326), driver="GPKG", layer="2D", schema=GRID_SCHEMA) as gpkg:
+    with fiona.open(
+        data, "w", crs=from_epsg(4326), driver="GPKG", layer="2D", schema=GRID_SCHEMA
+    ) as gpkg:
         pass
 
     if ts:
-        with fiona.open(ts, 'w',  driver="GPKG", layer='TS_2D', schema=TS_2D_SCHEMA) as gpkg:
-            pass # initialize time series database
+        with fiona.open(ts, "w", driver="GPKG", layer="TS_2D", schema=TS_2D_SCHEMA) as gpkg:
+            pass  # initialize time series database
 
-        with fiona.open(ts, 'w', driver="GPKG", layer='TS_LOS', schema=TS_LOS_SCHEMA) as gpkg:
-            pass # initialize time series database
+        with fiona.open(ts, "w", driver="GPKG", layer="TS_LOS", schema=TS_LOS_SCHEMA) as gpkg:
+            pass  # initialize time series database
 
     dirs = {}
-    directory = 'LOS'
+    directory = "LOS"
     base = Path(basedir) / Path(directory)
     dirs[directory] = {"cal": [], "raw": []}
 
     for raw_shp in base.iterdir():
         if raw_shp.suffix == ".shp":
-            if '_CAL_GNSS' not in raw_shp.stem:
+            if "_CAL_GNSS" not in raw_shp.stem:
                 dirs[directory]["raw"].append(raw_shp)
-                cal_shp = (raw_shp.parents[0] / Path(raw_shp.stem + "_CAL_GNSS.shp") )
+                cal_shp = raw_shp.parents[0] / Path(raw_shp.stem + "_CAL_GNSS.shp")
                 dirs[directory]["cal"].append(cal_shp)
-
 
     # prepare list of directories and files
     base = Path(basedir) / Path("2D")
     dirs["2D"] = {
-        'east': base / Path('DENMARK_SNT_EAST_IT902B3E.shp'),
-        'vert': base / Path('DENMARK_SNT_VERT_IT902B1V.shp'),
-        'cal':  base / Path('DENMARK_SNT_VERT_CAL_UPLIFT_IT902B2V.shp'),
+        "east": base / Path("DENMARK_SNT_EAST_IT902B3E.shp"),
+        "vert": base / Path("DENMARK_SNT_VERT_IT902B1V.shp"),
+        "cal": base / Path("DENMARK_SNT_VERT_CAL_UPLIFT_IT902B2V.shp"),
     }
 
-    print(dirs['2D'])
+    print(dirs["2D"])
     data_source = ogr.Open(data, 1)
     ts_source = None
     if ts:
