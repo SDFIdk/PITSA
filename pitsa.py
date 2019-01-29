@@ -27,6 +27,9 @@ import click
 
 import sqlite3  # fiona complains when sqlite3 is imported first
 
+from plot_los import plot_los
+from plot_2d import plot_2d
+
 ogr.UseExceptions()
 
 Param = namedtuple("Param", ["val", "stddev"])
@@ -309,80 +312,28 @@ def pitsa(ctx, start, stop):
 @click.argument("database", type=click.Path(exists=True))
 @click.argument("code")
 @click.pass_context
-def plot(ctx, calibrated, database, code):
-    """Plot time series and related fits for a given point"""
+def plotlos(ctx, calibrated, database, code):
+    """Plot time series and related fits for a given point
 
-    conn = sqlite3.connect(database)
-    c = conn.cursor()
+    Example points:
 
-    layer = "ts_point_cal" if calibrated else "ts_point"
-    c.execute("SELECT time, value from {layer} WHERE CODE ='{code}'".format(code=code, layer=layer))
-    time_series = c.fetchall()
-
-    if not time_series:
-        click.secho("Sorry, point ID not found!", fg="red")
-        return
-
-    x = np.array([ts[0] for ts in time_series])
-    y = np.array([ts[1] for ts in time_series])
-
-    click.echo("\nPlotting point ", nl=False)
-    click.secho(code, fg="red")
-    click.echo("")
-    click.secho("Existing attributes:", fg="green")
-
-    slope, intercept, r_value, _, _ = linregress(x, y)
-    click.secho("Linear fit:", fg="green")
-    click.secho("Velocity = {vel:.2f} mm/year, r = {r:.2f}".format(vel=slope, r=r_value))
-
-    amplitude, period, phase = sin_fit(x, y, intercept, slope)
-    click.secho("Sine fit:", fg="green")
-    click.secho("Period = {per:.2f} year +/- {std:.2f}".format(per=period.val, std=period.stddev))
-
-    # FFT
-    y_detrended = y - (slope * x + intercept)
-    fourier = np.fft.fft(y_detrended)
-    freq = np.fft.fftfreq(y.size, d=6 / 365)
-    idx = np.argsort(freq)
-
-    fig, ax = plt.subplots()
-    ax.plot(x, y_detrended, ".", color="lightgrey", label="Detrended observations")
-    ax.plot(x, y, "k.", label="Observations, n={n}".format(n=len(x)))
-    ax.plot(x, intercept + slope * x, "r-", label=f"linear fit, r={r_value:.2f}")
-    sin_plot = functools.partial(sin_estimator, intercept, slope)
-    # phase = phase.val % (2*math.pi)
-    phase = phase.val
-    y_sin = sin_plot(x, amplitude.val, period.val, phase)
-    ax.plot(
-        x,
-        y_sin,
-        "y-",
-        label=f"Sinusoidal fit, perid={period.val:.2f} yr +/- {period.stddev:.2f} yr, phase={phase:.2f}",
-    )
-    ax.legend()
-    plt.title(code)
-    plt.xlabel("Time [years]")
-    plt.ylabel("Displacement [mm]")
-    plt.grid()
-
-    # crude seasonality test:
-    # peaks in winter -> yyyy.0
-    # peaks in summer -> yyyy.5
-    peaks = signal.find_peaks(y_sin)
-    half_steps = np.round(x[peaks[0]] * 2) / 2
-    season = half_steps - np.floor(half_steps)
-    zeros = np.zeros(len(season))
-    winter_expansion = np.array_equal(zeros, season)
-    print(winter_expansion)
-
+        KHZAAYE
     """
-    fig2, ax2 = plt.subplots()
-    ax2.plot(freq[idx], fourier.real[idx], "r-", freq[idx], fourier.imag[idx], "b-")
-    plt.grid()
-    plt.xticks(np.arange(-5, 5, step=1))
-    plt.xlim([-5, 5])
+    plot_los(database, calibrated, code)
+
+@pitsa.command()
+@click.option("-c", "--calibrated", is_flag=True, help="Plot based on calibrated values")
+@click.argument("database", type=click.Path(exists=True))
+@click.argument("code")
+@click.pass_context
+def plot2d(ctx, calibrated, database, code):
+    """Plot time series and related fits for a given point
+
+    Example points:
+
+        B36FXB4
     """
-    plt.show()
+    plot_2d(database, calibrated, code)
 
 
 @pitsa.command()
@@ -436,7 +387,6 @@ def createdb(ctx, basedir, data, ts):
         "cal": base / Path("DENMARK_SNT_VERT_CAL_UPLIFT_IT902B2V.shp"),
     }
 
-    print(dirs["2D"])
     data_source = ogr.Open(data, 1)
     ts_source = None
     if ts:
