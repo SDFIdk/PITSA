@@ -44,13 +44,13 @@
               <Option value="" type="QString" name="name"/>
               <Option type="Map" name="properties">
                 <Option type="Map" name="angle">
-                  <Option value="false" type="bool" name="active"/>
-                  <Option value="1" type="int" name="type"/>
-                  <Option value="" type="QString" name="val"/>
+                  <Option value="true" type="bool" name="active"/>
+                  <Option value="if(  &quot;DIR&quot; = 'A', 0, 45)" type="QString" name="expression"/>
+                  <Option value="3" type="int" name="type"/>
                 </Option>
                 <Option type="Map" name="size">
                   <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
+                  <Option value="if(@map_scale >100000,0.4, min(2,max(0.75, log10(20*&quot;V_R2_TRUNC&quot;) )))" type="QString" name="expression"/>
                   <Option value="3" type="int" name="type"/>
                 </Option>
               </Option>
@@ -84,13 +84,13 @@
               <Option value="" type="QString" name="name"/>
               <Option type="Map" name="properties">
                 <Option type="Map" name="angle">
-                  <Option value="false" type="bool" name="active"/>
-                  <Option value="1" type="int" name="type"/>
-                  <Option value="" type="QString" name="val"/>
+                  <Option value="true" type="bool" name="active"/>
+                  <Option value="if(  &quot;DIR&quot; = 'A', 0, 45)" type="QString" name="expression"/>
+                  <Option value="3" type="int" name="type"/>
                 </Option>
                 <Option type="Map" name="size">
                   <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
+                  <Option value="if(@map_scale >100000,0.4, min(2,max(0.75, log10(20*&quot;V_R2_TRUNC&quot;) )))" type="QString" name="expression"/>
                   <Option value="3" type="int" name="type"/>
                 </Option>
               </Option>
@@ -124,13 +124,13 @@
               <Option value="" type="QString" name="name"/>
               <Option type="Map" name="properties">
                 <Option type="Map" name="angle">
-                  <Option value="false" type="bool" name="active"/>
-                  <Option value="1" type="int" name="type"/>
-                  <Option value="" type="QString" name="val"/>
+                  <Option value="true" type="bool" name="active"/>
+                  <Option value="if(  &quot;DIR&quot; = 'A', 0, 45)" type="QString" name="expression"/>
+                  <Option value="3" type="int" name="type"/>
                 </Option>
                 <Option type="Map" name="size">
                   <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
+                  <Option value="if(@map_scale >100000,0.4, min(2,max(0.75, log10(20*&quot;V_R2_TRUNC&quot;) )))" type="QString" name="expression"/>
                   <Option value="3" type="int" name="type"/>
                 </Option>
               </Option>
@@ -164,13 +164,13 @@
               <Option value="" type="QString" name="name"/>
               <Option type="Map" name="properties">
                 <Option type="Map" name="angle">
-                  <Option value="false" type="bool" name="active"/>
-                  <Option value="1" type="int" name="type"/>
-                  <Option value="" type="QString" name="val"/>
+                  <Option value="true" type="bool" name="active"/>
+                  <Option value="if(  &quot;DIR&quot; = 'A', 0, 45)" type="QString" name="expression"/>
+                  <Option value="3" type="int" name="type"/>
                 </Option>
                 <Option type="Map" name="size">
                   <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
+                  <Option value="if(@map_scale >100000,0.4, min(2,max(0.75, log10(20*&quot;V_R2_TRUNC&quot;) )))" type="QString" name="expression"/>
                   <Option value="3" type="int" name="type"/>
                 </Option>
               </Option>
@@ -204,13 +204,13 @@
               <Option value="" type="QString" name="name"/>
               <Option type="Map" name="properties">
                 <Option type="Map" name="angle">
-                  <Option value="false" type="bool" name="active"/>
-                  <Option value="1" type="int" name="type"/>
-                  <Option value="" type="QString" name="val"/>
+                  <Option value="true" type="bool" name="active"/>
+                  <Option value="if(  &quot;DIR&quot; = 'A', 0, 45)" type="QString" name="expression"/>
+                  <Option value="3" type="int" name="type"/>
                 </Option>
                 <Option type="Map" name="size">
                   <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
+                  <Option value="if(@map_scale >100000,0.4, min(2,max(0.75, log10(20*&quot;V_R2_TRUNC&quot;) )))" type="QString" name="expression"/>
                   <Option value="3" type="int" name="type"/>
                 </Option>
               </Option>
@@ -244,13 +244,13 @@
               <Option value="" type="QString" name="name"/>
               <Option type="Map" name="properties">
                 <Option type="Map" name="angle">
-                  <Option value="false" type="bool" name="active"/>
-                  <Option value="1" type="int" name="type"/>
-                  <Option value="" type="QString" name="val"/>
+                  <Option value="true" type="bool" name="active"/>
+                  <Option value="if(  &quot;DIR&quot; = 'A', 0, 45)" type="QString" name="expression"/>
+                  <Option value="3" type="int" name="type"/>
                 </Option>
                 <Option type="Map" name="size">
                   <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
+                  <Option value="if(@map_scale >100000,0.4, min(2,max(0.75, log10(20*&quot;V_R2_TRUNC&quot;) )))" type="QString" name="expression"/>
                   <Option value="3" type="int" name="type"/>
                 </Option>
               </Option>
@@ -284,13 +284,13 @@
               <Option value="" type="QString" name="name"/>
               <Option type="Map" name="properties">
                 <Option type="Map" name="angle">
-                  <Option value="false" type="bool" name="active"/>
-                  <Option value="1" type="int" name="type"/>
-                  <Option value="" type="QString" name="val"/>
+                  <Option value="true" type="bool" name="active"/>
+                  <Option value="if(  &quot;DIR&quot; = 'A', 0, 45)" type="QString" name="expression"/>
+                  <Option value="3" type="int" name="type"/>
                 </Option>
                 <Option type="Map" name="size">
                   <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
+                  <Option value="if(@map_scale >100000,0.4, min(2,max(0.75, log10(20*&quot;V_R2_TRUNC&quot;) )))" type="QString" name="expression"/>
                   <Option value="3" type="int" name="type"/>
                 </Option>
               </Option>
@@ -324,13 +324,13 @@
               <Option value="" type="QString" name="name"/>
               <Option type="Map" name="properties">
                 <Option type="Map" name="angle">
-                  <Option value="false" type="bool" name="active"/>
-                  <Option value="1" type="int" name="type"/>
-                  <Option value="" type="QString" name="val"/>
+                  <Option value="true" type="bool" name="active"/>
+                  <Option value="if(  &quot;DIR&quot; = 'A', 0, 45)" type="QString" name="expression"/>
+                  <Option value="3" type="int" name="type"/>
                 </Option>
                 <Option type="Map" name="size">
                   <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
+                  <Option value="if(@map_scale >100000,0.4, min(2,max(0.75, log10(20*&quot;V_R2_TRUNC&quot;) )))" type="QString" name="expression"/>
                   <Option value="3" type="int" name="type"/>
                 </Option>
               </Option>
@@ -364,13 +364,13 @@
               <Option value="" type="QString" name="name"/>
               <Option type="Map" name="properties">
                 <Option type="Map" name="angle">
-                  <Option value="false" type="bool" name="active"/>
-                  <Option value="1" type="int" name="type"/>
-                  <Option value="" type="QString" name="val"/>
+                  <Option value="true" type="bool" name="active"/>
+                  <Option value="if(  &quot;DIR&quot; = 'A', 0, 45)" type="QString" name="expression"/>
+                  <Option value="3" type="int" name="type"/>
                 </Option>
                 <Option type="Map" name="size">
                   <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
+                  <Option value="if(@map_scale >100000,0.4, min(2,max(0.75, log10(20*&quot;V_R2_TRUNC&quot;) )))" type="QString" name="expression"/>
                   <Option value="3" type="int" name="type"/>
                 </Option>
               </Option>
@@ -404,13 +404,13 @@
               <Option value="" type="QString" name="name"/>
               <Option type="Map" name="properties">
                 <Option type="Map" name="angle">
-                  <Option value="false" type="bool" name="active"/>
-                  <Option value="1" type="int" name="type"/>
-                  <Option value="" type="QString" name="val"/>
+                  <Option value="true" type="bool" name="active"/>
+                  <Option value="if(  &quot;DIR&quot; = 'A', 0, 45)" type="QString" name="expression"/>
+                  <Option value="3" type="int" name="type"/>
                 </Option>
                 <Option type="Map" name="size">
                   <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
+                  <Option value="if(@map_scale >100000,0.4, min(2,max(0.75, log10(20*&quot;V_R2_TRUNC&quot;) )))" type="QString" name="expression"/>
                   <Option value="3" type="int" name="type"/>
                 </Option>
               </Option>
@@ -446,13 +446,13 @@
               <Option value="" type="QString" name="name"/>
               <Option type="Map" name="properties">
                 <Option type="Map" name="angle">
-                  <Option value="false" type="bool" name="active"/>
-                  <Option value="1" type="int" name="type"/>
-                  <Option value="" type="QString" name="val"/>
+                  <Option value="true" type="bool" name="active"/>
+                  <Option value="if(  &quot;DIR&quot; = 'A', 0, 45)" type="QString" name="expression"/>
+                  <Option value="3" type="int" name="type"/>
                 </Option>
                 <Option type="Map" name="size">
                   <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
+                  <Option value="if(@map_scale >100000,0.4, min(2,max(0.75, log10(20*&quot;V_R2_TRUNC&quot;) )))" type="QString" name="expression"/>
                   <Option value="3" type="int" name="type"/>
                 </Option>
               </Option>
@@ -476,7 +476,7 @@
   </renderer-v2>
   <labeling type="simple">
     <settings>
-      <text-style fontWordSpacing="0" fontSizeMapUnitScale="3x:0,0,0,0,0,0" fontWeight="75" fontStrikeout="0" textOpacity="0.97" blendMode="0" fontUnderline="0" fontSizeUnit="Point" previewBkgrdColor="#ffffff" namedStyle="fed" fieldName="format_number(&quot;VEL_TRUNC&quot;,2) || ' mm/yr' &#xd;&#xa;" useSubstitutions="0" fontLetterSpacing="0" fontCapitals="0" isExpression="1" fontItalic="0" fontFamily="MS Shell Dlg 2" fontSize="6.5" textColor="255,255,255,255" multilineHeight="1">
+      <text-style fontWordSpacing="0" fontSizeMapUnitScale="3x:0,0,0,0,0,0" fontWeight="75" fontStrikeout="0" textOpacity="1" blendMode="0" fontUnderline="0" fontSizeUnit="Point" previewBkgrdColor="#ffffff" namedStyle="fed" fieldName="format_number(&quot;VEL_TRUNC&quot;,2) || ' mm/yr' &#xd;&#xa;" useSubstitutions="0" fontLetterSpacing="0" fontCapitals="0" isExpression="1" fontItalic="0" fontFamily="MS Shell Dlg 2" fontSize="6.5" textColor="255,255,255,255" multilineHeight="1">
         <text-buffer bufferSizeUnits="MM" bufferColor="0,0,0,255" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferOpacity="1" bufferNoFill="1" bufferBlendMode="0" bufferSize="0.6" bufferDraw="0" bufferJoinStyle="128"/>
         <background shapeOffsetX="0" shapeSizeType="0" shapeOffsetY="0" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeType="0" shapeJoinStyle="64" shapeRadiiY="0" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeDraw="0" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeRadiiUnit="MM" shapeRotationType="0" shapeBorderWidth="0" shapeBorderColor="128,128,128,255" shapeBlendMode="0" shapeSizeX="0" shapeSizeY="0" shapeOffsetUnit="MM" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeFillColor="255,255,255,255" shapeRotation="0" shapeOpacity="1" shapeRadiiX="0" shapeBorderWidthUnit="MM" shapeSVGFile="" shapeSizeUnit="MM"/>
         <shadow shadowDraw="0" shadowRadiusUnit="MM" shadowRadiusAlphaOnly="0" shadowScale="100" shadowOffsetUnit="MM" shadowOffsetMapUnitScale="3x:0,0,0,0,0,0" shadowOffsetDist="1" shadowColor="0,0,0,255" shadowUnder="0" shadowRadiusMapUnitScale="3x:0,0,0,0,0,0" shadowRadius="1.5" shadowBlendMode="6" shadowOffsetAngle="135" shadowOffsetGlobal="1" shadowOpacity="0.7"/>
@@ -484,14 +484,14 @@
       </text-style>
       <text-format useMaxLineLengthForAutoWrap="1" reverseDirectionSymbol="0" autoWrapLength="0" plussign="0" multilineAlign="3" formatNumbers="0" rightDirectionSymbol=">" leftDirectionSymbol="&lt;" placeDirectionSymbol="0" decimals="1" wrapChar="" addDirectionSymbol="0"/>
       <placement xOffset="0.5" yOffset="-0.5" offsetUnits="MM" maxCurvedCharAngleOut="-25" distMapUnitScale="3x:0,0,0,0,0,0" placement="1" predefinedPositionOrder="TR,TL,BR,BL,R,L,TSR,BSR" repeatDistanceMapUnitScale="3x:0,0,0,0,0,0" centroidInside="0" repeatDistanceUnits="MM" dist="0" labelOffsetMapUnitScale="3x:0,0,0,0,0,0" centroidWhole="0" preserveRotation="1" distUnits="MM" rotationAngle="0" priority="5" fitInPolygonOnly="0" repeatDistance="0" placementFlags="10" offsetType="1" quadOffset="2" maxCurvedCharAngleIn="25"/>
-      <rendering drawLabels="1" displayAll="0" scaleMax="6200" upsidedownLabels="0" labelPerPart="0" scaleMin="0" fontLimitPixelSize="0" minFeatureSize="0" mergeLines="0" zIndex="0" obstacle="1" scaleVisibility="1" obstacleFactor="1" maxNumLabels="2000" fontMaxPixelSize="10000" limitNumLabels="0" fontMinPixelSize="3" obstacleType="0"/>
+      <rendering drawLabels="1" displayAll="0" scaleMax="2500" upsidedownLabels="0" labelPerPart="0" scaleMin="0" fontLimitPixelSize="0" minFeatureSize="0" mergeLines="0" zIndex="0" obstacle="1" scaleVisibility="1" obstacleFactor="1" maxNumLabels="2000" fontMaxPixelSize="10000" limitNumLabels="0" fontMinPixelSize="3" obstacleType="0"/>
       <dd_properties>
         <Option type="Map">
           <Option value="" type="QString" name="name"/>
           <Option type="Map" name="properties">
             <Option type="Map" name="Color">
               <Option value="true" type="bool" name="active"/>
-              <Option value="if(&quot;VEL_TRUNC&quot;>0, color_rgb(0,110,180), color_rgb(220,0,35))" type="QString" name="expression"/>
+              <Option value="if(&quot;DIR&quot; = 'A', color_rgb(85,160,95), color_rgb(195,85,160))" type="QString" name="expression"/>
               <Option value="3" type="int" name="type"/>
             </Option>
           </Option>
@@ -512,6 +512,7 @@
   <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
     <DiagramCategory penColor="#000000" lineSizeType="MM" diagramOrientation="Up" backgroundAlpha="255" penWidth="0" minScaleDenominator="0" labelPlacementMethod="XHeight" maxScaleDenominator="1e+08" scaleBasedVisibility="0" width="15" sizeType="MM" opacity="1" height="15" enabled="0" sizeScale="3x:0,0,0,0,0,0" minimumSize="0" scaleDependency="Area" penAlpha="255" backgroundColor="#ffffff" lineSizeScale="3x:0,0,0,0,0,0" barWidth="5" rotationOffset="270">
       <fontProperties description="MS Shell Dlg 2,7.8,-1,5,50,0,0,0,0,0" style=""/>
+      <attribute field="" color="#000000" label=""/>
     </DiagramCategory>
   </SingleCategoryDiagramRenderer>
   <DiagramLayerSettings priority="0" obstacle="0" dist="0" showAll="1" placement="0" linePlacementFlags="18" zIndex="0">
@@ -762,38 +763,38 @@
   <expressionfields/>
   <attributeactions>
     <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
-    <actionsetting shortTitle="plot" icon="" action="import sqlite3&#xd;&#xa;import math&#xd;&#xa;import functools&#xd;&#xa;from collections import namedtuple&#xd;&#xa;&#xd;&#xa;import numpy as np&#xd;&#xa;from scipy.optimize import curve_fit&#xd;&#xa;from scipy.stats import linregress&#xd;&#xa;import matplotlib.pyplot as plt&#xd;&#xa;&#xd;&#xa;Param = namedtuple(&quot;Param&quot;, [&quot;val&quot;, &quot;stddev&quot;])&#xd;&#xa;&#xd;&#xa;CODE = '[%CODE%]'&#xd;&#xa;DB = r'F:\SDFE\FAELLESOPGAVER\Vert_landbev\Tjeneste\Leverancer\AnalyseData\insar_timeseries.gpkg'&#xd;&#xa;&#xd;&#xa;def sin_estimator(&#xd;&#xa;    intercept: float,&#xd;&#xa;    slope: float,&#xd;&#xa;    x: np.array,&#xd;&#xa;    amplitude: float,&#xd;&#xa;    period: float,&#xd;&#xa;    phase: float,&#xd;&#xa;) -> np.array:&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    Mathematical description of a slopeed sine function for use in curve fitting.&#xd;&#xa;&#xd;&#xa;    Intercept and slope parameters determined by fitting a straight line and&#xd;&#xa;    substituting the values using functools.partial.&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    return amplitude * np.sin(2 * math.pi * period * x + phase) + intercept + x * slope&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;def sin_fit(x: np.array, y: np.array, intercept: float, slope: float) -> dict:&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    Determine sine function fit parameters amplitude, period and phase.&#xd;&#xa;&#xd;&#xa;    The period of the sine function is the parameter of interest. It is returned&#xd;&#xa;    in units of years.&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    guesses = (&#xd;&#xa;        (np.max(y) - np.min(y)) / 2,  # amplitude [mm]&#xd;&#xa;        1,  # period [years]&#xd;&#xa;        0,  # phase shift [years]&#xd;&#xa;    )&#xd;&#xa;    try:&#xd;&#xa;        fit_func = functools.partial(sin_estimator, intercept, slope)&#xd;&#xa;        par, cov = curve_fit(fit_func, x, y, p0=guesses)&#xd;&#xa;        std = np.sqrt(np.diag(cov))&#xd;&#xa;    except (RuntimeError, ValueError):&#xd;&#xa;        par = np.ones(3) * np.nan&#xd;&#xa;        std = np.ones(3) * np.nan&#xd;&#xa;&#xd;&#xa;    amplitude = Param(val=par[0], stddev=std[0])&#xd;&#xa;    period = Param(val=par[1], stddev=std[1])&#xd;&#xa;    phase = Param(val=par[2], stddev=std[2])&#xd;&#xa;&#xd;&#xa;    return amplitude, period, phase&#xd;&#xa;&#xd;&#xa;con = sqlite3.connect(DB)&#xd;&#xa;cursor = con.cursor()&#xd;&#xa;&#xd;&#xa;sql = 'SELECT time, value FROM ts_point WHERE code = &quot;{code}&quot;'.format(code=CODE)&#xd;&#xa;cursor.execute(sql)&#xd;&#xa;time_series = cursor.fetchall()&#xd;&#xa;&#xd;&#xa;x = np.array([ts[0] for ts in time_series])&#xd;&#xa;y = np.array([ts[1] for ts in time_series])&#xd;&#xa;I = x > 2016.083&#xd;&#xa;&#xd;&#xa;slope, intercept, r_value, _, _ = linregress(x, y)&#xd;&#xa;slope_trunc, intercept_trunc, r_value_trunc, _, _ = linregress(x[I], y[I])&#xd;&#xa;amplitude, period, phase = sin_fit(x[I], y[I], intercept_trunc, slope_trunc)&#xd;&#xa;&#xd;&#xa;fig, ax = plt.subplots()&#xd;&#xa;ax.plot(x, y, &quot;g.&quot;, color=&quot;lightgrey&quot;)&#xd;&#xa;ax.plot(x[I], y[I], &quot;k.&quot;, label=&quot;Observations, n={n}&quot;.format(n=len(x)))&#xd;&#xa;ax.plot(x, intercept + slope * x, &quot;r-&quot;, label=f&quot;Linear fit: v={slope:.2f} mm/yr, r={r_value:.2f}&quot;)&#xd;&#xa;ax.plot(x[I], intercept_trunc + slope_trunc * x[I], &quot;b-&quot;, label=f&quot;Truncated linear fit: v={slope_trunc:.2f} mm/yr, r={r_value_trunc:.2f}&quot;)&#xd;&#xa;sin_plot = functools.partial(sin_estimator, intercept, slope)&#xd;&#xa;ax.plot(&#xd;&#xa;    x[I],&#xd;&#xa;    sin_plot(x[I], amplitude.val, period.val, phase.val),&#xd;&#xa;    &quot;y-&quot;,&#xd;&#xa;    label=f&quot;Sinusoidal fit, perid={period.val:.2f} yr +/- {period.stddev:.2f} yr&quot;,&#xd;&#xa;)&#xd;&#xa;ax.legend()&#xd;&#xa;plt.title(&quot;Raw &quot; + CODE)&#xd;&#xa;plt.xlabel(&quot;Time [years]&quot;)&#xd;&#xa;plt.ylabel(&quot;Displacement [mm]&quot;)&#xd;&#xa;plt.grid()&#xd;&#xa;&#xd;&#xa;plt.show()" notificationMessage="" isEnabledOnlyWhenEditable="0" capture="0" id="{89e61a00-7b06-4b62-9348-8e8a2cfac151}" type="1" name="Plot time series raw">
-      <actionScope id="Feature"/>
+    <actionsetting shortTitle="plot" icon="" action="import sqlite3&#xd;&#xa;import math&#xd;&#xa;import functools&#xd;&#xa;from collections import namedtuple&#xd;&#xa;&#xd;&#xa;import numpy as np&#xd;&#xa;from scipy.optimize import curve_fit&#xd;&#xa;from scipy.stats import linregress&#xd;&#xa;import matplotlib.pyplot as plt&#xd;&#xa;&#xd;&#xa;Param = namedtuple(&quot;Param&quot;, [&quot;val&quot;, &quot;stddev&quot;])&#xd;&#xa;&#xd;&#xa;DB = r'F:\SDFE\FAELLESOPGAVER\Vert_landbev\Tjeneste\Leverancer\AnalyseData\ts.gpkg'&#xd;&#xa;&#xd;&#xa;def sin_estimator(&#xd;&#xa;    intercept: float,&#xd;&#xa;    slope: float,&#xd;&#xa;    x: np.array,&#xd;&#xa;    amplitude: float,&#xd;&#xa;    period: float,&#xd;&#xa;    phase: float,&#xd;&#xa;) -> np.array:&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    Mathematical description of a slopeed sine function for use in curve fitting.&#xd;&#xa;&#xd;&#xa;    Intercept and slope parameters determined by fitting a straight line and&#xd;&#xa;    substituting the values using functools.partial.&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    return amplitude * np.sin(2 * math.pi * period * x + phase) + intercept + x * slope&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;def sin_fit(x: np.array, y: np.array, intercept: float, slope: float) -> dict:&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    Determine sine function fit parameters amplitude, period and phase.&#xd;&#xa;&#xd;&#xa;    The period of the sine function is the parameter of interest. It is returned&#xd;&#xa;    in units of years.&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    guesses = (&#xd;&#xa;        (np.max(y) - np.min(y)) / 2,  # amplitude [mm]&#xd;&#xa;        1,  # period [years]&#xd;&#xa;        0,  # phase shift [years]&#xd;&#xa;    )&#xd;&#xa;    try:&#xd;&#xa;        fit_func = functools.partial(sin_estimator, intercept, slope)&#xd;&#xa;        par, cov = curve_fit(fit_func, x, y, p0=guesses)&#xd;&#xa;        std = np.sqrt(np.diag(cov))&#xd;&#xa;    except (RuntimeError, ValueError):&#xd;&#xa;        par = np.ones(3) * np.nan&#xd;&#xa;        std = np.ones(3) * np.nan&#xd;&#xa;&#xd;&#xa;    amplitude = Param(val=par[0], stddev=std[0])&#xd;&#xa;    period = Param(val=par[1], stddev=std[1])&#xd;&#xa;    phase = Param(val=par[2], stddev=std[2])&#xd;&#xa;&#xd;&#xa;    return amplitude, period, phase&#xd;&#xa;&#xd;&#xa;def plot_los(db, calibrated, code):&#xd;&#xa;&#xd;&#xa;    con = sqlite3.connect(db)&#xd;&#xa;    cursor = con.cursor()&#xd;&#xa;&#xd;&#xa;    if calibrated:&#xd;&#xa;        sql = f'SELECT time, cal_value FROM ts_los WHERE code = &quot;{code}&quot;'&#xd;&#xa;    else:&#xd;&#xa;        sql = f'SELECT time, value FROM ts_los WHERE code = &quot;{code}&quot;'&#xd;&#xa;&#xd;&#xa;    cursor.execute(sql)&#xd;&#xa;    time_series = cursor.fetchall()&#xd;&#xa;&#xd;&#xa;    x = np.array([ts[0] for ts in time_series])&#xd;&#xa;    y = np.array([ts[1] for ts in time_series])&#xd;&#xa;    I = x > 2016.083&#xd;&#xa;&#xd;&#xa;    slope, intercept, r_value, _, _ = linregress(x, y)&#xd;&#xa;    slope_trunc, intercept_trunc, r_value_trunc, _, _ = linregress(x[I], y[I])&#xd;&#xa;    amplitude, period, phase = sin_fit(x[I], y[I], intercept_trunc, slope_trunc)&#xd;&#xa;&#xd;&#xa;    fig, ax = plt.subplots()&#xd;&#xa;    ax.plot(x, y, &quot;g.&quot;, color=&quot;lightgrey&quot;, label=&quot;Discarded observations&quot;)&#xd;&#xa;    ax.plot(x[I], y[I], &quot;k.&quot;, label=&quot;Observations, n={n}&quot;.format(n=len(x)))&#xd;&#xa;    ax.plot(x, intercept + slope * x, &quot;r-&quot;, label=f&quot;Linear fit: v={slope:.2f} mm/yr, r={r_value:.2f}&quot;)&#xd;&#xa;    ax.plot(x[I], intercept_trunc + slope_trunc * x[I], &quot;b-&quot;, label=f&quot;Truncated linear fit: v={slope_trunc:.2f} mm/yr, r={r_value_trunc:.2f}&quot;)&#xd;&#xa;    sin_plot = functools.partial(sin_estimator, intercept, slope)&#xd;&#xa;    ax.plot(&#xd;&#xa;        x[I],&#xd;&#xa;        sin_plot(x[I], amplitude.val, period.val, phase.val),&#xd;&#xa;        &quot;y-&quot;,&#xd;&#xa;        label=f&quot;Sinusoidal fit, perid={period.val:.2f} yr +/- {period.stddev:.2f} yr&quot;,&#xd;&#xa;    )&#xd;&#xa;    ax.legend()&#xd;&#xa;    plt.title(&quot;LoS&quot; + (&quot; calibrated&quot; if calibrated else &quot;&quot;) + f&quot;: {code}&quot;)&#xd;&#xa;    plt.xlabel(&quot;Time [years]&quot;)&#xd;&#xa;    plt.ylabel(&quot;Displacement [mm]&quot;)&#xd;&#xa;    plt.grid()&#xd;&#xa;&#xd;&#xa;    plt.show()&#xd;&#xa;&#xd;&#xa;plot_los(DB, False, &quot;[%CODE%]&quot;)" notificationMessage="" isEnabledOnlyWhenEditable="0" capture="0" id="{543f9d34-03d7-4e3d-93b7-b780876f4023}" type="1" name="Plot time series LoS">
       <actionScope id="Canvas"/>
+      <actionScope id="Feature"/>
     </actionsetting>
-    <actionsetting shortTitle="plot calibrated" icon="" action="import sqlite3&#xd;&#xa;import math&#xd;&#xa;import functools&#xd;&#xa;from collections import namedtuple&#xd;&#xa;&#xd;&#xa;import numpy as np&#xd;&#xa;from scipy.optimize import curve_fit&#xd;&#xa;from scipy.stats import linregress&#xd;&#xa;import matplotlib.pyplot as plt&#xd;&#xa;&#xd;&#xa;Param = namedtuple(&quot;Param&quot;, [&quot;val&quot;, &quot;stddev&quot;])&#xd;&#xa;&#xd;&#xa;CODE = '[%CODE%]'&#xd;&#xa;DB = r'F:\SDFE\FAELLESOPGAVER\Vert_landbev\Tjeneste\Leverancer\AnalyseData\insar_timeseries.gpkg'&#xd;&#xa;&#xd;&#xa;def sin_estimator(&#xd;&#xa;    intercept: float,&#xd;&#xa;    slope: float,&#xd;&#xa;    x: np.array,&#xd;&#xa;    amplitude: float,&#xd;&#xa;    period: float,&#xd;&#xa;    phase: float,&#xd;&#xa;) -> np.array:&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    Mathematical description of a slopeed sine function for use in curve fitting.&#xd;&#xa;&#xd;&#xa;    Intercept and slope parameters determined by fitting a straight line and&#xd;&#xa;    substituting the values using functools.partial.&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    return amplitude * np.sin(2 * math.pi * period * x + phase) + intercept + x * slope&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;def sin_fit(x: np.array, y: np.array, intercept: float, slope: float) -> dict:&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    Determine sine function fit parameters amplitude, period and phase.&#xd;&#xa;&#xd;&#xa;    The period of the sine function is the parameter of interest. It is returned&#xd;&#xa;    in units of years.&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    guesses = (&#xd;&#xa;        (np.max(y) - np.min(y)) / 2,  # amplitude [mm]&#xd;&#xa;        1,  # period [years]&#xd;&#xa;        0,  # phase shift [years]&#xd;&#xa;    )&#xd;&#xa;    try:&#xd;&#xa;        fit_func = functools.partial(sin_estimator, intercept, slope)&#xd;&#xa;        par, cov = curve_fit(fit_func, x, y, p0=guesses)&#xd;&#xa;        std = np.sqrt(np.diag(cov))&#xd;&#xa;    except (RuntimeError, ValueError):&#xd;&#xa;        par = np.ones(3) * np.nan&#xd;&#xa;        std = np.ones(3) * np.nan&#xd;&#xa;&#xd;&#xa;    amplitude = Param(val=par[0], stddev=std[0])&#xd;&#xa;    period = Param(val=par[1], stddev=std[1])&#xd;&#xa;    phase = Param(val=par[2], stddev=std[2])&#xd;&#xa;&#xd;&#xa;    return amplitude, period, phase&#xd;&#xa;&#xd;&#xa;con = sqlite3.connect(DB)&#xd;&#xa;cursor = con.cursor()&#xd;&#xa;&#xd;&#xa;sql = 'SELECT time, value FROM ts_point_cal WHERE code = &quot;{code}&quot;'.format(code=CODE)&#xd;&#xa;cursor.execute(sql)&#xd;&#xa;time_series = cursor.fetchall()&#xd;&#xa;&#xd;&#xa;x = np.array([ts[0] for ts in time_series])&#xd;&#xa;y = np.array([ts[1] for ts in time_series])&#xd;&#xa;I = x > 2016.083&#xd;&#xa;&#xd;&#xa;slope, intercept, r_value, _, _ = linregress(x, y)&#xd;&#xa;slope_trunc, intercept_trunc, r_value_trunc, _, _ = linregress(x[I], y[I])&#xd;&#xa;amplitude, period, phase = sin_fit(x[I], y[I], intercept_trunc, slope_trunc)&#xd;&#xa;&#xd;&#xa;fig, ax = plt.subplots()&#xd;&#xa;ax.plot(x, y, &quot;g.&quot;, color=&quot;lightgrey&quot;)&#xd;&#xa;ax.plot(x[I], y[I], &quot;k.&quot;, label=&quot;Observations, n={n}&quot;.format(n=len(x)))&#xd;&#xa;ax.plot(x, intercept + slope * x, &quot;r-&quot;, label=f&quot;Linear fit: v={slope:.2f} mm/yr, r={r_value:.2f}&quot;)&#xd;&#xa;ax.plot(x[I], intercept_trunc + slope_trunc * x[I], &quot;b-&quot;, label=f&quot;Truncated linear fit: v={slope_trunc:.2f} mm/yr, r={r_value_trunc:.2f}&quot;)&#xd;&#xa;sin_plot = functools.partial(sin_estimator, intercept, slope)&#xd;&#xa;ax.plot(&#xd;&#xa;    x[I],&#xd;&#xa;    sin_plot(x[I], amplitude.val, period.val, phase.val),&#xd;&#xa;    &quot;y-&quot;,&#xd;&#xa;    label=f&quot;Sinusoidal fit, perid={period.val:.2f} yr +/- {period.stddev:.2f} yr&quot;,&#xd;&#xa;)&#xd;&#xa;ax.legend()&#xd;&#xa;plt.title(&quot;Calibrated &quot; + CODE)&#xd;&#xa;plt.xlabel(&quot;Time [years]&quot;)&#xd;&#xa;plt.ylabel(&quot;Displacement [mm]&quot;)&#xd;&#xa;plt.grid()&#xd;&#xa;&#xd;&#xa;plt.show()&#xd;&#xa;&#xd;&#xa;" notificationMessage="" isEnabledOnlyWhenEditable="0" capture="0" id="{b92bdc1f-b14e-40e0-8dcb-41e2a7c6e5f5}" type="1" name="Plot time series calibrated">
-      <actionScope id="Feature"/>
+    <actionsetting shortTitle="plot calibrated" icon="" action="import sqlite3&#xd;&#xa;import math&#xd;&#xa;import functools&#xd;&#xa;from collections import namedtuple&#xd;&#xa;&#xd;&#xa;import numpy as np&#xd;&#xa;from scipy.optimize import curve_fit&#xd;&#xa;from scipy.stats import linregress&#xd;&#xa;import matplotlib.pyplot as plt&#xd;&#xa;&#xd;&#xa;Param = namedtuple(&quot;Param&quot;, [&quot;val&quot;, &quot;stddev&quot;])&#xd;&#xa;&#xd;&#xa;DB = r'F:\SDFE\FAELLESOPGAVER\Vert_landbev\Tjeneste\Leverancer\AnalyseData\ts.gpkg'&#xd;&#xa;&#xd;&#xa;def sin_estimator(&#xd;&#xa;    intercept: float,&#xd;&#xa;    slope: float,&#xd;&#xa;    x: np.array,&#xd;&#xa;    amplitude: float,&#xd;&#xa;    period: float,&#xd;&#xa;    phase: float,&#xd;&#xa;) -> np.array:&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    Mathematical description of a slopeed sine function for use in curve fitting.&#xd;&#xa;&#xd;&#xa;    Intercept and slope parameters determined by fitting a straight line and&#xd;&#xa;    substituting the values using functools.partial.&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    return amplitude * np.sin(2 * math.pi * period * x + phase) + intercept + x * slope&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;def sin_fit(x: np.array, y: np.array, intercept: float, slope: float) -> dict:&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    Determine sine function fit parameters amplitude, period and phase.&#xd;&#xa;&#xd;&#xa;    The period of the sine function is the parameter of interest. It is returned&#xd;&#xa;    in units of years.&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    guesses = (&#xd;&#xa;        (np.max(y) - np.min(y)) / 2,  # amplitude [mm]&#xd;&#xa;        1,  # period [years]&#xd;&#xa;        0,  # phase shift [years]&#xd;&#xa;    )&#xd;&#xa;    try:&#xd;&#xa;        fit_func = functools.partial(sin_estimator, intercept, slope)&#xd;&#xa;        par, cov = curve_fit(fit_func, x, y, p0=guesses)&#xd;&#xa;        std = np.sqrt(np.diag(cov))&#xd;&#xa;    except (RuntimeError, ValueError):&#xd;&#xa;        par = np.ones(3) * np.nan&#xd;&#xa;        std = np.ones(3) * np.nan&#xd;&#xa;&#xd;&#xa;    amplitude = Param(val=par[0], stddev=std[0])&#xd;&#xa;    period = Param(val=par[1], stddev=std[1])&#xd;&#xa;    phase = Param(val=par[2], stddev=std[2])&#xd;&#xa;&#xd;&#xa;    return amplitude, period, phase&#xd;&#xa;&#xd;&#xa;def plot_los(db, calibrated, code):&#xd;&#xa;&#xd;&#xa;    con = sqlite3.connect(db)&#xd;&#xa;    cursor = con.cursor()&#xd;&#xa;&#xd;&#xa;    if calibrated:&#xd;&#xa;        sql = f'SELECT time, cal_value FROM ts_los WHERE code = &quot;{code}&quot;'&#xd;&#xa;    else:&#xd;&#xa;        sql = f'SELECT time, value FROM ts_los WHERE code = &quot;{code}&quot;'&#xd;&#xa;&#xd;&#xa;    cursor.execute(sql)&#xd;&#xa;    time_series = cursor.fetchall()&#xd;&#xa;&#xd;&#xa;    x = np.array([ts[0] for ts in time_series])&#xd;&#xa;    y = np.array([ts[1] for ts in time_series])&#xd;&#xa;    I = x > 2016.083&#xd;&#xa;&#xd;&#xa;    slope, intercept, r_value, _, _ = linregress(x, y)&#xd;&#xa;    slope_trunc, intercept_trunc, r_value_trunc, _, _ = linregress(x[I], y[I])&#xd;&#xa;    amplitude, period, phase = sin_fit(x[I], y[I], intercept_trunc, slope_trunc)&#xd;&#xa;&#xd;&#xa;    fig, ax = plt.subplots()&#xd;&#xa;    ax.plot(x, y, &quot;g.&quot;, color=&quot;lightgrey&quot;, label=&quot;Discarded observations&quot;)&#xd;&#xa;    ax.plot(x[I], y[I], &quot;k.&quot;, label=&quot;Observations, n={n}&quot;.format(n=len(x)))&#xd;&#xa;    ax.plot(x, intercept + slope * x, &quot;r-&quot;, label=f&quot;Linear fit: v={slope:.2f} mm/yr, r={r_value:.2f}&quot;)&#xd;&#xa;    ax.plot(x[I], intercept_trunc + slope_trunc * x[I], &quot;b-&quot;, label=f&quot;Truncated linear fit: v={slope_trunc:.2f} mm/yr, r={r_value_trunc:.2f}&quot;)&#xd;&#xa;    sin_plot = functools.partial(sin_estimator, intercept, slope)&#xd;&#xa;    ax.plot(&#xd;&#xa;        x[I],&#xd;&#xa;        sin_plot(x[I], amplitude.val, period.val, phase.val),&#xd;&#xa;        &quot;y-&quot;,&#xd;&#xa;        label=f&quot;Sinusoidal fit, perid={period.val:.2f} yr +/- {period.stddev:.2f} yr&quot;,&#xd;&#xa;    )&#xd;&#xa;    ax.legend()&#xd;&#xa;    plt.title(&quot;LoS&quot; + (&quot; calibrated&quot; if calibrated else &quot;&quot;) + f&quot;: {code}&quot;)&#xd;&#xa;    plt.xlabel(&quot;Time [years]&quot;)&#xd;&#xa;    plt.ylabel(&quot;Displacement [mm]&quot;)&#xd;&#xa;    plt.grid()&#xd;&#xa;&#xd;&#xa;    plt.show()&#xd;&#xa;&#xd;&#xa;plot_los(DB, True, &quot;[%CODE%]&quot;)" notificationMessage="" isEnabledOnlyWhenEditable="0" capture="0" id="{4a308660-f13c-4017-9432-8ce0d0eae6c1}" type="1" name="Plot time series LoS calibrated">
       <actionScope id="Canvas"/>
+      <actionScope id="Feature"/>
     </actionsetting>
   </attributeactions>
   <attributetableconfig actionWidgetStyle="dropDown" sortExpression="&quot;fid&quot;" sortOrder="0">
     <columns>
       <column width="-1" hidden="0" type="field" name="fid"/>
       <column width="-1" hidden="0" type="field" name="CODE"/>
-      <column width="-1" hidden="1" type="actions"/>
       <column width="-1" hidden="0" type="field" name="HEIGHT"/>
       <column width="-1" hidden="0" type="field" name="H_STDEV"/>
       <column width="-1" hidden="0" type="field" name="TRACK_NO"/>
       <column width="-1" hidden="0" type="field" name="DIR"/>
       <column width="-1" hidden="0" type="field" name="VEL"/>
       <column width="-1" hidden="0" type="field" name="V_STDEV"/>
-      <column width="-1" hidden="0" type="field" name="VEL_VERT"/>
       <column width="-1" hidden="0" type="field" name="VEL_CAL"/>
-      <column width="-1" hidden="0" type="field" name="VEL_STDEV_CAL"/>
       <column width="-1" hidden="0" type="field" name="COHERENCE"/>
       <column width="-1" hidden="0" type="field" name="EFF_AREA"/>
       <column width="-1" hidden="0" type="field" name="ADI"/>
       <column width="-1" hidden="0" type="field" name="VEL_TRUNC"/>
       <column width="-1" hidden="0" type="field" name="V_R2_TRUNC"/>
+      <column width="-1" hidden="0" type="field" name="PERIOD"/>
+      <column width="-1" hidden="1" type="actions"/>
+      <column width="-1" hidden="0" type="field" name="VEL_STDEV_CAL"/>
       <column width="-1" hidden="0" type="field" name="VEL_CAL_TRUNC"/>
       <column width="-1" hidden="0" type="field" name="V_R2_CAL_TRUNC"/>
-      <column width="-1" hidden="0" type="field" name="PERIOD"/>
       <column width="-1" hidden="0" type="field" name="PERIOD_STDEV"/>
+      <column width="-1" hidden="0" type="field" name="VEL_VERT"/>
     </columns>
   </attributetableconfig>
   <conditionalstyles>
@@ -839,16 +840,10 @@ def my_form_open(dialog, layer, feature):
     <field editable="1" name="VEL_CAL"/>
     <field editable="1" name="VEL_CAL_TR"/>
     <field editable="1" name="VEL_CAL_TRUNC"/>
-    <field editable="1" name="VEL_E"/>
     <field editable="1" name="VEL_STDEV_"/>
     <field editable="1" name="VEL_STDEV_CAL"/>
-    <field editable="1" name="VEL_STD_E"/>
-    <field editable="1" name="VEL_STD_V"/>
-    <field editable="1" name="VEL_STD_V_NOUPLIFT"/>
     <field editable="1" name="VEL_TRUNC"/>
-    <field editable="1" name="VEL_V"/>
     <field editable="1" name="VEL_VERT"/>
-    <field editable="1" name="VEL_V_NOUPLIFT"/>
     <field editable="1" name="V_R2_CAL_T"/>
     <field editable="1" name="V_R2_CAL_TRUNC"/>
     <field editable="1" name="V_R2_TRUNC"/>
@@ -871,16 +866,10 @@ def my_form_open(dialog, layer, feature):
     <field labelOnTop="0" name="VEL_CAL"/>
     <field labelOnTop="0" name="VEL_CAL_TR"/>
     <field labelOnTop="0" name="VEL_CAL_TRUNC"/>
-    <field labelOnTop="0" name="VEL_E"/>
     <field labelOnTop="0" name="VEL_STDEV_"/>
     <field labelOnTop="0" name="VEL_STDEV_CAL"/>
-    <field labelOnTop="0" name="VEL_STD_E"/>
-    <field labelOnTop="0" name="VEL_STD_V"/>
-    <field labelOnTop="0" name="VEL_STD_V_NOUPLIFT"/>
     <field labelOnTop="0" name="VEL_TRUNC"/>
-    <field labelOnTop="0" name="VEL_V"/>
     <field labelOnTop="0" name="VEL_VERT"/>
-    <field labelOnTop="0" name="VEL_V_NOUPLIFT"/>
     <field labelOnTop="0" name="V_R2_CAL_T"/>
     <field labelOnTop="0" name="V_R2_CAL_TRUNC"/>
     <field labelOnTop="0" name="V_R2_TRUNC"/>

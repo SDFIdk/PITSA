@@ -22,7 +22,7 @@
       <symbol alpha="1" clip_to_extent="1" type="marker" name="0">
         <layer class="SimpleMarker" enabled="1" pass="4" locked="0">
           <prop v="0" k="angle"/>
-          <prop v="202,0,32,255" k="color"/>
+          <prop v="5,113,176,255" k="color"/>
           <prop v="1" k="horizontal_anchor_point"/>
           <prop v="bevel" k="joinstyle"/>
           <prop v="square" k="name"/>
@@ -50,7 +50,7 @@
                 </Option>
                 <Option type="Map" name="size">
                   <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
+                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;VEL_STD_V&quot;))))" type="QString" name="expression"/>
                   <Option value="3" type="int" name="type"/>
                 </Option>
               </Option>
@@ -60,286 +60,6 @@
         </layer>
       </symbol>
       <symbol alpha="1" clip_to_extent="1" type="marker" name="1">
-        <layer class="SimpleMarker" enabled="1" pass="3" locked="0">
-          <prop v="0" k="angle"/>
-          <prop v="221,73,75,255" k="color"/>
-          <prop v="1" k="horizontal_anchor_point"/>
-          <prop v="bevel" k="joinstyle"/>
-          <prop v="square" k="name"/>
-          <prop v="0,0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="MM" k="offset_unit"/>
-          <prop v="35,35,35,255" k="outline_color"/>
-          <prop v="no" k="outline_style"/>
-          <prop v="0" k="outline_width"/>
-          <prop v="3x:0,0,0,0,0,0" k="outline_width_map_unit_scale"/>
-          <prop v="MM" k="outline_width_unit"/>
-          <prop v="diameter" k="scale_method"/>
-          <prop v="2" k="size"/>
-          <prop v="3x:0,0,0,0,0,0" k="size_map_unit_scale"/>
-          <prop v="MM" k="size_unit"/>
-          <prop v="1" k="vertical_anchor_point"/>
-          <data_defined_properties>
-            <Option type="Map">
-              <Option value="" type="QString" name="name"/>
-              <Option type="Map" name="properties">
-                <Option type="Map" name="angle">
-                  <Option value="false" type="bool" name="active"/>
-                  <Option value="1" type="int" name="type"/>
-                  <Option value="" type="QString" name="val"/>
-                </Option>
-                <Option type="Map" name="size">
-                  <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
-                  <Option value="3" type="int" name="type"/>
-                </Option>
-              </Option>
-              <Option value="collection" type="QString" name="type"/>
-            </Option>
-          </data_defined_properties>
-        </layer>
-      </symbol>
-      <symbol alpha="1" clip_to_extent="1" type="marker" name="2">
-        <layer class="SimpleMarker" enabled="1" pass="2" locked="0">
-          <prop v="0" k="angle"/>
-          <prop v="240,147,119,255" k="color"/>
-          <prop v="1" k="horizontal_anchor_point"/>
-          <prop v="bevel" k="joinstyle"/>
-          <prop v="square" k="name"/>
-          <prop v="0,0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="MM" k="offset_unit"/>
-          <prop v="35,35,35,255" k="outline_color"/>
-          <prop v="no" k="outline_style"/>
-          <prop v="0" k="outline_width"/>
-          <prop v="3x:0,0,0,0,0,0" k="outline_width_map_unit_scale"/>
-          <prop v="MM" k="outline_width_unit"/>
-          <prop v="diameter" k="scale_method"/>
-          <prop v="2" k="size"/>
-          <prop v="3x:0,0,0,0,0,0" k="size_map_unit_scale"/>
-          <prop v="MM" k="size_unit"/>
-          <prop v="1" k="vertical_anchor_point"/>
-          <data_defined_properties>
-            <Option type="Map">
-              <Option value="" type="QString" name="name"/>
-              <Option type="Map" name="properties">
-                <Option type="Map" name="angle">
-                  <Option value="false" type="bool" name="active"/>
-                  <Option value="1" type="int" name="type"/>
-                  <Option value="" type="QString" name="val"/>
-                </Option>
-                <Option type="Map" name="size">
-                  <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
-                  <Option value="3" type="int" name="type"/>
-                </Option>
-              </Option>
-              <Option value="collection" type="QString" name="type"/>
-            </Option>
-          </data_defined_properties>
-        </layer>
-      </symbol>
-      <symbol alpha="1" clip_to_extent="1" type="marker" name="3">
-        <layer class="SimpleMarker" enabled="1" pass="1" locked="0">
-          <prop v="0" k="angle"/>
-          <prop v="245,193,169,255" k="color"/>
-          <prop v="1" k="horizontal_anchor_point"/>
-          <prop v="bevel" k="joinstyle"/>
-          <prop v="square" k="name"/>
-          <prop v="0,0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="MM" k="offset_unit"/>
-          <prop v="35,35,35,255" k="outline_color"/>
-          <prop v="no" k="outline_style"/>
-          <prop v="0" k="outline_width"/>
-          <prop v="3x:0,0,0,0,0,0" k="outline_width_map_unit_scale"/>
-          <prop v="MM" k="outline_width_unit"/>
-          <prop v="diameter" k="scale_method"/>
-          <prop v="2" k="size"/>
-          <prop v="3x:0,0,0,0,0,0" k="size_map_unit_scale"/>
-          <prop v="MM" k="size_unit"/>
-          <prop v="1" k="vertical_anchor_point"/>
-          <data_defined_properties>
-            <Option type="Map">
-              <Option value="" type="QString" name="name"/>
-              <Option type="Map" name="properties">
-                <Option type="Map" name="angle">
-                  <Option value="false" type="bool" name="active"/>
-                  <Option value="1" type="int" name="type"/>
-                  <Option value="" type="QString" name="val"/>
-                </Option>
-                <Option type="Map" name="size">
-                  <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
-                  <Option value="3" type="int" name="type"/>
-                </Option>
-              </Option>
-              <Option value="collection" type="QString" name="type"/>
-            </Option>
-          </data_defined_properties>
-        </layer>
-      </symbol>
-      <symbol alpha="1" clip_to_extent="1" type="marker" name="4">
-        <layer class="SimpleMarker" enabled="1" pass="0" locked="0">
-          <prop v="0" k="angle"/>
-          <prop v="247,229,221,255" k="color"/>
-          <prop v="1" k="horizontal_anchor_point"/>
-          <prop v="bevel" k="joinstyle"/>
-          <prop v="square" k="name"/>
-          <prop v="0,0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="MM" k="offset_unit"/>
-          <prop v="35,35,35,255" k="outline_color"/>
-          <prop v="no" k="outline_style"/>
-          <prop v="0" k="outline_width"/>
-          <prop v="3x:0,0,0,0,0,0" k="outline_width_map_unit_scale"/>
-          <prop v="MM" k="outline_width_unit"/>
-          <prop v="diameter" k="scale_method"/>
-          <prop v="2" k="size"/>
-          <prop v="3x:0,0,0,0,0,0" k="size_map_unit_scale"/>
-          <prop v="MM" k="size_unit"/>
-          <prop v="1" k="vertical_anchor_point"/>
-          <data_defined_properties>
-            <Option type="Map">
-              <Option value="" type="QString" name="name"/>
-              <Option type="Map" name="properties">
-                <Option type="Map" name="angle">
-                  <Option value="false" type="bool" name="active"/>
-                  <Option value="1" type="int" name="type"/>
-                  <Option value="" type="QString" name="val"/>
-                </Option>
-                <Option type="Map" name="size">
-                  <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
-                  <Option value="3" type="int" name="type"/>
-                </Option>
-              </Option>
-              <Option value="collection" type="QString" name="type"/>
-            </Option>
-          </data_defined_properties>
-        </layer>
-      </symbol>
-      <symbol alpha="1" clip_to_extent="1" type="marker" name="5">
-        <layer class="SimpleMarker" enabled="1" pass="0" locked="0">
-          <prop v="0" k="angle"/>
-          <prop v="225,236,242,255" k="color"/>
-          <prop v="1" k="horizontal_anchor_point"/>
-          <prop v="bevel" k="joinstyle"/>
-          <prop v="square" k="name"/>
-          <prop v="0,0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="MM" k="offset_unit"/>
-          <prop v="35,35,35,255" k="outline_color"/>
-          <prop v="no" k="outline_style"/>
-          <prop v="0" k="outline_width"/>
-          <prop v="3x:0,0,0,0,0,0" k="outline_width_map_unit_scale"/>
-          <prop v="MM" k="outline_width_unit"/>
-          <prop v="diameter" k="scale_method"/>
-          <prop v="2" k="size"/>
-          <prop v="3x:0,0,0,0,0,0" k="size_map_unit_scale"/>
-          <prop v="MM" k="size_unit"/>
-          <prop v="1" k="vertical_anchor_point"/>
-          <data_defined_properties>
-            <Option type="Map">
-              <Option value="" type="QString" name="name"/>
-              <Option type="Map" name="properties">
-                <Option type="Map" name="angle">
-                  <Option value="false" type="bool" name="active"/>
-                  <Option value="1" type="int" name="type"/>
-                  <Option value="" type="QString" name="val"/>
-                </Option>
-                <Option type="Map" name="size">
-                  <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
-                  <Option value="3" type="int" name="type"/>
-                </Option>
-              </Option>
-              <Option value="collection" type="QString" name="type"/>
-            </Option>
-          </data_defined_properties>
-        </layer>
-      </symbol>
-      <symbol alpha="1" clip_to_extent="1" type="marker" name="6">
-        <layer class="SimpleMarker" enabled="1" pass="1" locked="0">
-          <prop v="0" k="angle"/>
-          <prop v="180,214,231,255" k="color"/>
-          <prop v="1" k="horizontal_anchor_point"/>
-          <prop v="bevel" k="joinstyle"/>
-          <prop v="square" k="name"/>
-          <prop v="0,0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="MM" k="offset_unit"/>
-          <prop v="35,35,35,255" k="outline_color"/>
-          <prop v="no" k="outline_style"/>
-          <prop v="0" k="outline_width"/>
-          <prop v="3x:0,0,0,0,0,0" k="outline_width_map_unit_scale"/>
-          <prop v="MM" k="outline_width_unit"/>
-          <prop v="diameter" k="scale_method"/>
-          <prop v="2" k="size"/>
-          <prop v="3x:0,0,0,0,0,0" k="size_map_unit_scale"/>
-          <prop v="MM" k="size_unit"/>
-          <prop v="1" k="vertical_anchor_point"/>
-          <data_defined_properties>
-            <Option type="Map">
-              <Option value="" type="QString" name="name"/>
-              <Option type="Map" name="properties">
-                <Option type="Map" name="angle">
-                  <Option value="false" type="bool" name="active"/>
-                  <Option value="1" type="int" name="type"/>
-                  <Option value="" type="QString" name="val"/>
-                </Option>
-                <Option type="Map" name="size">
-                  <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
-                  <Option value="3" type="int" name="type"/>
-                </Option>
-              </Option>
-              <Option value="collection" type="QString" name="type"/>
-            </Option>
-          </data_defined_properties>
-        </layer>
-      </symbol>
-      <symbol alpha="1" clip_to_extent="1" type="marker" name="7">
-        <layer class="SimpleMarker" enabled="1" pass="2" locked="0">
-          <prop v="0" k="angle"/>
-          <prop v="130,188,217,255" k="color"/>
-          <prop v="1" k="horizontal_anchor_point"/>
-          <prop v="bevel" k="joinstyle"/>
-          <prop v="square" k="name"/>
-          <prop v="0,0" k="offset"/>
-          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
-          <prop v="MM" k="offset_unit"/>
-          <prop v="35,35,35,255" k="outline_color"/>
-          <prop v="no" k="outline_style"/>
-          <prop v="0" k="outline_width"/>
-          <prop v="3x:0,0,0,0,0,0" k="outline_width_map_unit_scale"/>
-          <prop v="MM" k="outline_width_unit"/>
-          <prop v="diameter" k="scale_method"/>
-          <prop v="2" k="size"/>
-          <prop v="3x:0,0,0,0,0,0" k="size_map_unit_scale"/>
-          <prop v="MM" k="size_unit"/>
-          <prop v="1" k="vertical_anchor_point"/>
-          <data_defined_properties>
-            <Option type="Map">
-              <Option value="" type="QString" name="name"/>
-              <Option type="Map" name="properties">
-                <Option type="Map" name="angle">
-                  <Option value="false" type="bool" name="active"/>
-                  <Option value="1" type="int" name="type"/>
-                  <Option value="" type="QString" name="val"/>
-                </Option>
-                <Option type="Map" name="size">
-                  <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
-                  <Option value="3" type="int" name="type"/>
-                </Option>
-              </Option>
-              <Option value="collection" type="QString" name="type"/>
-            </Option>
-          </data_defined_properties>
-        </layer>
-      </symbol>
-      <symbol alpha="1" clip_to_extent="1" type="marker" name="8">
         <layer class="SimpleMarker" enabled="1" pass="3" locked="0">
           <prop v="0" k="angle"/>
           <prop v="67,150,197,255" k="color"/>
@@ -370,7 +90,7 @@
                 </Option>
                 <Option type="Map" name="size">
                   <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
+                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;VEL_STD_V&quot;))))" type="QString" name="expression"/>
                   <Option value="3" type="int" name="type"/>
                 </Option>
               </Option>
@@ -379,10 +99,10 @@
           </data_defined_properties>
         </layer>
       </symbol>
-      <symbol alpha="1" clip_to_extent="1" type="marker" name="9">
-        <layer class="SimpleMarker" enabled="1" pass="4" locked="0">
+      <symbol alpha="1" clip_to_extent="1" type="marker" name="2">
+        <layer class="SimpleMarker" enabled="1" pass="2" locked="0">
           <prop v="0" k="angle"/>
-          <prop v="5,113,176,255" k="color"/>
+          <prop v="130,188,217,255" k="color"/>
           <prop v="1" k="horizontal_anchor_point"/>
           <prop v="bevel" k="joinstyle"/>
           <prop v="square" k="name"/>
@@ -410,7 +130,287 @@
                 </Option>
                 <Option type="Map" name="size">
                   <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
+                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;VEL_STD_V&quot;))))" type="QString" name="expression"/>
+                  <Option value="3" type="int" name="type"/>
+                </Option>
+              </Option>
+              <Option value="collection" type="QString" name="type"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+      </symbol>
+      <symbol alpha="1" clip_to_extent="1" type="marker" name="3">
+        <layer class="SimpleMarker" enabled="1" pass="1" locked="0">
+          <prop v="0" k="angle"/>
+          <prop v="180,214,231,255" k="color"/>
+          <prop v="1" k="horizontal_anchor_point"/>
+          <prop v="bevel" k="joinstyle"/>
+          <prop v="square" k="name"/>
+          <prop v="0,0" k="offset"/>
+          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+          <prop v="MM" k="offset_unit"/>
+          <prop v="35,35,35,255" k="outline_color"/>
+          <prop v="no" k="outline_style"/>
+          <prop v="0" k="outline_width"/>
+          <prop v="3x:0,0,0,0,0,0" k="outline_width_map_unit_scale"/>
+          <prop v="MM" k="outline_width_unit"/>
+          <prop v="diameter" k="scale_method"/>
+          <prop v="2" k="size"/>
+          <prop v="3x:0,0,0,0,0,0" k="size_map_unit_scale"/>
+          <prop v="MM" k="size_unit"/>
+          <prop v="1" k="vertical_anchor_point"/>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option value="" type="QString" name="name"/>
+              <Option type="Map" name="properties">
+                <Option type="Map" name="angle">
+                  <Option value="false" type="bool" name="active"/>
+                  <Option value="1" type="int" name="type"/>
+                  <Option value="" type="QString" name="val"/>
+                </Option>
+                <Option type="Map" name="size">
+                  <Option value="true" type="bool" name="active"/>
+                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;VEL_STD_V&quot;))))" type="QString" name="expression"/>
+                  <Option value="3" type="int" name="type"/>
+                </Option>
+              </Option>
+              <Option value="collection" type="QString" name="type"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+      </symbol>
+      <symbol alpha="1" clip_to_extent="1" type="marker" name="4">
+        <layer class="SimpleMarker" enabled="1" pass="0" locked="0">
+          <prop v="0" k="angle"/>
+          <prop v="225,236,242,255" k="color"/>
+          <prop v="1" k="horizontal_anchor_point"/>
+          <prop v="bevel" k="joinstyle"/>
+          <prop v="square" k="name"/>
+          <prop v="0,0" k="offset"/>
+          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+          <prop v="MM" k="offset_unit"/>
+          <prop v="35,35,35,255" k="outline_color"/>
+          <prop v="no" k="outline_style"/>
+          <prop v="0" k="outline_width"/>
+          <prop v="3x:0,0,0,0,0,0" k="outline_width_map_unit_scale"/>
+          <prop v="MM" k="outline_width_unit"/>
+          <prop v="diameter" k="scale_method"/>
+          <prop v="2" k="size"/>
+          <prop v="3x:0,0,0,0,0,0" k="size_map_unit_scale"/>
+          <prop v="MM" k="size_unit"/>
+          <prop v="1" k="vertical_anchor_point"/>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option value="" type="QString" name="name"/>
+              <Option type="Map" name="properties">
+                <Option type="Map" name="angle">
+                  <Option value="false" type="bool" name="active"/>
+                  <Option value="1" type="int" name="type"/>
+                  <Option value="" type="QString" name="val"/>
+                </Option>
+                <Option type="Map" name="size">
+                  <Option value="true" type="bool" name="active"/>
+                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;VEL_STD_V&quot;))))" type="QString" name="expression"/>
+                  <Option value="3" type="int" name="type"/>
+                </Option>
+              </Option>
+              <Option value="collection" type="QString" name="type"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+      </symbol>
+      <symbol alpha="1" clip_to_extent="1" type="marker" name="5">
+        <layer class="SimpleMarker" enabled="1" pass="0" locked="0">
+          <prop v="0" k="angle"/>
+          <prop v="247,229,221,255" k="color"/>
+          <prop v="1" k="horizontal_anchor_point"/>
+          <prop v="bevel" k="joinstyle"/>
+          <prop v="square" k="name"/>
+          <prop v="0,0" k="offset"/>
+          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+          <prop v="MM" k="offset_unit"/>
+          <prop v="35,35,35,255" k="outline_color"/>
+          <prop v="no" k="outline_style"/>
+          <prop v="0" k="outline_width"/>
+          <prop v="3x:0,0,0,0,0,0" k="outline_width_map_unit_scale"/>
+          <prop v="MM" k="outline_width_unit"/>
+          <prop v="diameter" k="scale_method"/>
+          <prop v="2" k="size"/>
+          <prop v="3x:0,0,0,0,0,0" k="size_map_unit_scale"/>
+          <prop v="MM" k="size_unit"/>
+          <prop v="1" k="vertical_anchor_point"/>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option value="" type="QString" name="name"/>
+              <Option type="Map" name="properties">
+                <Option type="Map" name="angle">
+                  <Option value="false" type="bool" name="active"/>
+                  <Option value="1" type="int" name="type"/>
+                  <Option value="" type="QString" name="val"/>
+                </Option>
+                <Option type="Map" name="size">
+                  <Option value="true" type="bool" name="active"/>
+                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;VEL_STD_V&quot;))))" type="QString" name="expression"/>
+                  <Option value="3" type="int" name="type"/>
+                </Option>
+              </Option>
+              <Option value="collection" type="QString" name="type"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+      </symbol>
+      <symbol alpha="1" clip_to_extent="1" type="marker" name="6">
+        <layer class="SimpleMarker" enabled="1" pass="1" locked="0">
+          <prop v="0" k="angle"/>
+          <prop v="245,193,169,255" k="color"/>
+          <prop v="1" k="horizontal_anchor_point"/>
+          <prop v="bevel" k="joinstyle"/>
+          <prop v="square" k="name"/>
+          <prop v="0,0" k="offset"/>
+          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+          <prop v="MM" k="offset_unit"/>
+          <prop v="35,35,35,255" k="outline_color"/>
+          <prop v="no" k="outline_style"/>
+          <prop v="0" k="outline_width"/>
+          <prop v="3x:0,0,0,0,0,0" k="outline_width_map_unit_scale"/>
+          <prop v="MM" k="outline_width_unit"/>
+          <prop v="diameter" k="scale_method"/>
+          <prop v="2" k="size"/>
+          <prop v="3x:0,0,0,0,0,0" k="size_map_unit_scale"/>
+          <prop v="MM" k="size_unit"/>
+          <prop v="1" k="vertical_anchor_point"/>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option value="" type="QString" name="name"/>
+              <Option type="Map" name="properties">
+                <Option type="Map" name="angle">
+                  <Option value="false" type="bool" name="active"/>
+                  <Option value="1" type="int" name="type"/>
+                  <Option value="" type="QString" name="val"/>
+                </Option>
+                <Option type="Map" name="size">
+                  <Option value="true" type="bool" name="active"/>
+                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;VEL_STD_V&quot;))))" type="QString" name="expression"/>
+                  <Option value="3" type="int" name="type"/>
+                </Option>
+              </Option>
+              <Option value="collection" type="QString" name="type"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+      </symbol>
+      <symbol alpha="1" clip_to_extent="1" type="marker" name="7">
+        <layer class="SimpleMarker" enabled="1" pass="2" locked="0">
+          <prop v="0" k="angle"/>
+          <prop v="240,147,119,255" k="color"/>
+          <prop v="1" k="horizontal_anchor_point"/>
+          <prop v="bevel" k="joinstyle"/>
+          <prop v="square" k="name"/>
+          <prop v="0,0" k="offset"/>
+          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+          <prop v="MM" k="offset_unit"/>
+          <prop v="35,35,35,255" k="outline_color"/>
+          <prop v="no" k="outline_style"/>
+          <prop v="0" k="outline_width"/>
+          <prop v="3x:0,0,0,0,0,0" k="outline_width_map_unit_scale"/>
+          <prop v="MM" k="outline_width_unit"/>
+          <prop v="diameter" k="scale_method"/>
+          <prop v="2" k="size"/>
+          <prop v="3x:0,0,0,0,0,0" k="size_map_unit_scale"/>
+          <prop v="MM" k="size_unit"/>
+          <prop v="1" k="vertical_anchor_point"/>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option value="" type="QString" name="name"/>
+              <Option type="Map" name="properties">
+                <Option type="Map" name="angle">
+                  <Option value="false" type="bool" name="active"/>
+                  <Option value="1" type="int" name="type"/>
+                  <Option value="" type="QString" name="val"/>
+                </Option>
+                <Option type="Map" name="size">
+                  <Option value="true" type="bool" name="active"/>
+                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;VEL_STD_V&quot;))))" type="QString" name="expression"/>
+                  <Option value="3" type="int" name="type"/>
+                </Option>
+              </Option>
+              <Option value="collection" type="QString" name="type"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+      </symbol>
+      <symbol alpha="1" clip_to_extent="1" type="marker" name="8">
+        <layer class="SimpleMarker" enabled="1" pass="3" locked="0">
+          <prop v="0" k="angle"/>
+          <prop v="221,73,75,255" k="color"/>
+          <prop v="1" k="horizontal_anchor_point"/>
+          <prop v="bevel" k="joinstyle"/>
+          <prop v="square" k="name"/>
+          <prop v="0,0" k="offset"/>
+          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+          <prop v="MM" k="offset_unit"/>
+          <prop v="35,35,35,255" k="outline_color"/>
+          <prop v="no" k="outline_style"/>
+          <prop v="0" k="outline_width"/>
+          <prop v="3x:0,0,0,0,0,0" k="outline_width_map_unit_scale"/>
+          <prop v="MM" k="outline_width_unit"/>
+          <prop v="diameter" k="scale_method"/>
+          <prop v="2" k="size"/>
+          <prop v="3x:0,0,0,0,0,0" k="size_map_unit_scale"/>
+          <prop v="MM" k="size_unit"/>
+          <prop v="1" k="vertical_anchor_point"/>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option value="" type="QString" name="name"/>
+              <Option type="Map" name="properties">
+                <Option type="Map" name="angle">
+                  <Option value="false" type="bool" name="active"/>
+                  <Option value="1" type="int" name="type"/>
+                  <Option value="" type="QString" name="val"/>
+                </Option>
+                <Option type="Map" name="size">
+                  <Option value="true" type="bool" name="active"/>
+                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;VEL_STD_V&quot;))))" type="QString" name="expression"/>
+                  <Option value="3" type="int" name="type"/>
+                </Option>
+              </Option>
+              <Option value="collection" type="QString" name="type"/>
+            </Option>
+          </data_defined_properties>
+        </layer>
+      </symbol>
+      <symbol alpha="1" clip_to_extent="1" type="marker" name="9">
+        <layer class="SimpleMarker" enabled="1" pass="4" locked="0">
+          <prop v="0" k="angle"/>
+          <prop v="202,0,32,255" k="color"/>
+          <prop v="1" k="horizontal_anchor_point"/>
+          <prop v="bevel" k="joinstyle"/>
+          <prop v="square" k="name"/>
+          <prop v="0,0" k="offset"/>
+          <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+          <prop v="MM" k="offset_unit"/>
+          <prop v="35,35,35,255" k="outline_color"/>
+          <prop v="no" k="outline_style"/>
+          <prop v="0" k="outline_width"/>
+          <prop v="3x:0,0,0,0,0,0" k="outline_width_map_unit_scale"/>
+          <prop v="MM" k="outline_width_unit"/>
+          <prop v="diameter" k="scale_method"/>
+          <prop v="2" k="size"/>
+          <prop v="3x:0,0,0,0,0,0" k="size_map_unit_scale"/>
+          <prop v="MM" k="size_unit"/>
+          <prop v="1" k="vertical_anchor_point"/>
+          <data_defined_properties>
+            <Option type="Map">
+              <Option value="" type="QString" name="name"/>
+              <Option type="Map" name="properties">
+                <Option type="Map" name="angle">
+                  <Option value="false" type="bool" name="active"/>
+                  <Option value="1" type="int" name="type"/>
+                  <Option value="" type="QString" name="val"/>
+                </Option>
+                <Option type="Map" name="size">
+                  <Option value="true" type="bool" name="active"/>
+                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;VEL_STD_V&quot;))))" type="QString" name="expression"/>
                   <Option value="3" type="int" name="type"/>
                 </Option>
               </Option>
@@ -452,7 +452,7 @@
                 </Option>
                 <Option type="Map" name="size">
                   <Option value="true" type="bool" name="active"/>
-                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;V_R2_CAL_TRUNC&quot;))))" type="QString" name="expression"/>
+                  <Option value="if(@map_scale>200000, 0.4, min(2,max(0.35,  log10(20*&quot;VEL_STD_V&quot;))))" type="QString" name="expression"/>
                   <Option value="3" type="int" name="type"/>
                 </Option>
               </Option>
@@ -463,11 +463,11 @@
       </symbol>
     </source-symbol>
     <colorramp type="gradient" name="[source]">
-      <prop v="202,0,32,255" k="color1"/>
-      <prop v="5,113,176,255" k="color2"/>
+      <prop v="5,113,176,255" k="color1"/>
+      <prop v="202,0,32,255" k="color2"/>
       <prop v="0" k="discrete"/>
       <prop v="gradient" k="rampType"/>
-      <prop v="0.25;244,165,130,255:0.5;247,247,247,255:0.75;146,197,222,255" k="stops"/>
+      <prop v="0.25;146,197,222,255:0.5;247,247,247,255:0.75;244,165,130,255" k="stops"/>
     </colorramp>
     <symmetricMode enabled="false" symmetryPoint="0" astride="false"/>
     <rotation/>
@@ -630,13 +630,13 @@
   <expressionfields/>
   <attributeactions>
     <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
-    <actionsetting shortTitle="plot" icon="" action="import sqlite3&#xd;&#xa;import math&#xd;&#xa;import functools&#xd;&#xa;from collections import namedtuple&#xd;&#xa;&#xd;&#xa;import numpy as np&#xd;&#xa;from scipy.optimize import curve_fit&#xd;&#xa;from scipy.stats import linregress&#xd;&#xa;import matplotlib.pyplot as plt&#xd;&#xa;&#xd;&#xa;Param = namedtuple(&quot;Param&quot;, [&quot;val&quot;, &quot;stddev&quot;])&#xd;&#xa;&#xd;&#xa;CODE = '[%CODE%]'&#xd;&#xa;DB = r'F:\SDFE\FAELLESOPGAVER\Vert_landbev\Tjeneste\Leverancer\AnalyseData\insar_timeseries.gpkg'&#xd;&#xa;&#xd;&#xa;def sin_estimator(&#xd;&#xa;    intercept: float,&#xd;&#xa;    slope: float,&#xd;&#xa;    x: np.array,&#xd;&#xa;    amplitude: float,&#xd;&#xa;    period: float,&#xd;&#xa;    phase: float,&#xd;&#xa;) -> np.array:&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    Mathematical description of a slopeed sine function for use in curve fitting.&#xd;&#xa;&#xd;&#xa;    Intercept and slope parameters determined by fitting a straight line and&#xd;&#xa;    substituting the values using functools.partial.&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    return amplitude * np.sin(2 * math.pi * period * x + phase) + intercept + x * slope&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;def sin_fit(x: np.array, y: np.array, intercept: float, slope: float) -> dict:&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    Determine sine function fit parameters amplitude, period and phase.&#xd;&#xa;&#xd;&#xa;    The period of the sine function is the parameter of interest. It is returned&#xd;&#xa;    in units of years.&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    guesses = (&#xd;&#xa;        (np.max(y) - np.min(y)) / 2,  # amplitude [mm]&#xd;&#xa;        1,  # period [years]&#xd;&#xa;        0,  # phase shift [years]&#xd;&#xa;    )&#xd;&#xa;    try:&#xd;&#xa;        fit_func = functools.partial(sin_estimator, intercept, slope)&#xd;&#xa;        par, cov = curve_fit(fit_func, x, y, p0=guesses)&#xd;&#xa;        std = np.sqrt(np.diag(cov))&#xd;&#xa;    except (RuntimeError, ValueError):&#xd;&#xa;        par = np.ones(3) * np.nan&#xd;&#xa;        std = np.ones(3) * np.nan&#xd;&#xa;&#xd;&#xa;    amplitude = Param(val=par[0], stddev=std[0])&#xd;&#xa;    period = Param(val=par[1], stddev=std[1])&#xd;&#xa;    phase = Param(val=par[2], stddev=std[2])&#xd;&#xa;&#xd;&#xa;    return amplitude, period, phase&#xd;&#xa;&#xd;&#xa;con = sqlite3.connect(DB)&#xd;&#xa;cursor = con.cursor()&#xd;&#xa;&#xd;&#xa;sql = 'SELECT time, value FROM ts_point WHERE code = &quot;{code}&quot;'.format(code=CODE)&#xd;&#xa;cursor.execute(sql)&#xd;&#xa;time_series = cursor.fetchall()&#xd;&#xa;&#xd;&#xa;x = np.array([ts[0] for ts in time_series])&#xd;&#xa;y = np.array([ts[1] for ts in time_series])&#xd;&#xa;I = x > 2016.083&#xd;&#xa;&#xd;&#xa;slope, intercept, r_value, _, _ = linregress(x, y)&#xd;&#xa;slope_trunc, intercept_trunc, r_value_trunc, _, _ = linregress(x[I], y[I])&#xd;&#xa;amplitude, period, phase = sin_fit(x[I], y[I], intercept_trunc, slope_trunc)&#xd;&#xa;&#xd;&#xa;fig, ax = plt.subplots()&#xd;&#xa;ax.plot(x, y, &quot;g.&quot;, color=&quot;lightgrey&quot;)&#xd;&#xa;ax.plot(x[I], y[I], &quot;k.&quot;, label=&quot;Observations, n={n}&quot;.format(n=len(x)))&#xd;&#xa;ax.plot(x, intercept + slope * x, &quot;r-&quot;, label=f&quot;Linear fit: v={slope:.2f} mm/yr, r={r_value:.2f}&quot;)&#xd;&#xa;ax.plot(x[I], intercept_trunc + slope_trunc * x[I], &quot;b-&quot;, label=f&quot;Truncated linear fit: v={slope_trunc:.2f} mm/yr, r={r_value_trunc:.2f}&quot;)&#xd;&#xa;sin_plot = functools.partial(sin_estimator, intercept, slope)&#xd;&#xa;ax.plot(&#xd;&#xa;    x[I],&#xd;&#xa;    sin_plot(x[I], amplitude.val, period.val, phase.val),&#xd;&#xa;    &quot;y-&quot;,&#xd;&#xa;    label=f&quot;Sinusoidal fit, perid={period.val:.2f} yr +/- {period.stddev:.2f} yr&quot;,&#xd;&#xa;)&#xd;&#xa;ax.legend()&#xd;&#xa;plt.title(&quot;Raw &quot; + CODE)&#xd;&#xa;plt.xlabel(&quot;Time [years]&quot;)&#xd;&#xa;plt.ylabel(&quot;Displacement [mm]&quot;)&#xd;&#xa;plt.grid()&#xd;&#xa;&#xd;&#xa;plt.show()" notificationMessage="" isEnabledOnlyWhenEditable="0" capture="0" id="{8742cb49-93c0-491a-81d5-25f3b21b10dc}" type="1" name="Plot time series raw">
-      <actionScope id="Feature"/>
+    <actionsetting shortTitle="plot" icon="" action="import sqlite3&#xd;&#xa;import math&#xd;&#xa;import functools&#xd;&#xa;from collections import namedtuple&#xd;&#xa;&#xd;&#xa;import numpy as np&#xd;&#xa;from scipy.optimize import curve_fit&#xd;&#xa;from scipy.stats import linregress&#xd;&#xa;import matplotlib.pyplot as plt&#xd;&#xa;&#xd;&#xa;Param = namedtuple(&quot;Param&quot;, [&quot;val&quot;, &quot;stddev&quot;])&#xd;&#xa;&#xd;&#xa;DB = r'F:\SDFE\FAELLESOPGAVER\Vert_landbev\Tjeneste\Leverancer\AnalyseData\ts.gpkg'&#xd;&#xa;&#xd;&#xa;def sin_estimator(&#xd;&#xa;    intercept: float,&#xd;&#xa;    slope: float,&#xd;&#xa;    x: np.array,&#xd;&#xa;    amplitude: float,&#xd;&#xa;    period: float,&#xd;&#xa;    phase: float,&#xd;&#xa;) -> np.array:&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    Mathematical description of a slopeed sine function for use in curve fitting.&#xd;&#xa;&#xd;&#xa;    Intercept and slope parameters determined by fitting a straight line and&#xd;&#xa;    substituting the values using functools.partial.&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    return amplitude * np.sin(2 * math.pi * period * x + phase) + intercept + x * slope&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;def sin_fit(x: np.array, y: np.array, intercept: float, slope: float) -> dict:&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    Determine sine function fit parameters amplitude, period and phase.&#xd;&#xa;&#xd;&#xa;    The period of the sine function is the parameter of interest. It is returned&#xd;&#xa;    in units of years.&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    guesses = (&#xd;&#xa;        (np.max(y) - np.min(y)) / 2,  # amplitude [mm]&#xd;&#xa;        1,  # period [years]&#xd;&#xa;        0,  # phase shift [years]&#xd;&#xa;    )&#xd;&#xa;    try:&#xd;&#xa;        fit_func = functools.partial(sin_estimator, intercept, slope)&#xd;&#xa;        par, cov = curve_fit(fit_func, x, y, p0=guesses)&#xd;&#xa;        std = np.sqrt(np.diag(cov))&#xd;&#xa;    except (RuntimeError, ValueError):&#xd;&#xa;        par = np.ones(3) * np.nan&#xd;&#xa;        std = np.ones(3) * np.nan&#xd;&#xa;&#xd;&#xa;    amplitude = Param(val=par[0], stddev=std[0])&#xd;&#xa;    period = Param(val=par[1], stddev=std[1])&#xd;&#xa;    phase = Param(val=par[2], stddev=std[2])&#xd;&#xa;&#xd;&#xa;    return amplitude, period, phase&#xd;&#xa;&#xd;&#xa;def plot_2d(db, calibrated, code):&#xd;&#xa;    con = sqlite3.connect(db)&#xd;&#xa;    cursor = con.cursor()&#xd;&#xa;&#xd;&#xa;    if calibrated:&#xd;&#xa;        y_component = 'vert_cal'&#xd;&#xa;    else:&#xd;&#xa;        y_component = 'vert'&#xd;&#xa;&#xd;&#xa;    sql = f'SELECT time, east, {y_component} FROM ts_2d WHERE code = &quot;{code}&quot;'&#xd;&#xa;    cursor.execute(sql)&#xd;&#xa;    time_series = cursor.fetchall()&#xd;&#xa;&#xd;&#xa;    t = np.array([ts[0] for ts in time_series])&#xd;&#xa;    hor = np.array([ts[1] for ts in time_series])&#xd;&#xa;    ver = np.array([ts[2] for ts in time_series])&#xd;&#xa;&#xd;&#xa;    hor_slope, hor_intercept, hor_r_value, _, _ = linregress(t, hor)&#xd;&#xa;    ver_slope, ver_intercept, ver_r_value, _, _ = linregress(t, ver)&#xd;&#xa;&#xd;&#xa;    fig, ax = plt.subplots()&#xd;&#xa;    ax.plot(t, hor, &quot;2&quot;, color=&quot;salmon&quot;, label=&quot;Horizontal observations, n={n}&quot;.format(n=len(t)))&#xd;&#xa;    ax.plot(t, hor_intercept + hor_slope * t, &quot;r-&quot;, label=f&quot;Linear fit (horizontal): v={hor_slope:.2f} mm/yr, r={hor_r_value:.2f}&quot;)&#xd;&#xa;    ax.plot(t, ver, &quot;1&quot;, color=&quot;cornflowerblue&quot;, label=&quot;Vertical observations, n={n}&quot;.format(n=len(t)))&#xd;&#xa;    ax.plot(t, ver_intercept + ver_slope * t, &quot;b-&quot;, label=f&quot;Linear fit (vertical): v={ver_slope:.2f} mm/yr, r={ver_r_value:.2f}&quot;)&#xd;&#xa;&#xd;&#xa;    ax.legend()&#xd;&#xa;    plt.title(&quot;2D&quot; + (&quot; calibrated&quot; if calibrated else &quot;&quot;) + f&quot;: {code}&quot;)&#xd;&#xa;    plt.xlabel(&quot;Time [years]&quot;)&#xd;&#xa;    plt.ylabel(&quot;Displacement [mm]&quot;)&#xd;&#xa;    plt.grid()&#xd;&#xa;&#xd;&#xa;    plt.show()&#xd;&#xa;    &#xd;&#xa;plot_2d(DB, False, &quot;[%CODE%]&quot;)" notificationMessage="" isEnabledOnlyWhenEditable="0" capture="0" id="{e3b00c7a-b7e6-4e5d-af5c-41bc89a56cb7}" type="1" name="Plot time series 2D">
       <actionScope id="Canvas"/>
+      <actionScope id="Feature"/>
     </actionsetting>
-    <actionsetting shortTitle="plot calibrated" icon="" action="import sqlite3&#xd;&#xa;import math&#xd;&#xa;import functools&#xd;&#xa;from collections import namedtuple&#xd;&#xa;&#xd;&#xa;import numpy as np&#xd;&#xa;from scipy.optimize import curve_fit&#xd;&#xa;from scipy.stats import linregress&#xd;&#xa;import matplotlib.pyplot as plt&#xd;&#xa;&#xd;&#xa;Param = namedtuple(&quot;Param&quot;, [&quot;val&quot;, &quot;stddev&quot;])&#xd;&#xa;&#xd;&#xa;CODE = '[%CODE%]'&#xd;&#xa;DB = r'F:\SDFE\FAELLESOPGAVER\Vert_landbev\Tjeneste\Leverancer\AnalyseData\insar_timeseries.gpkg'&#xd;&#xa;&#xd;&#xa;def sin_estimator(&#xd;&#xa;    intercept: float,&#xd;&#xa;    slope: float,&#xd;&#xa;    x: np.array,&#xd;&#xa;    amplitude: float,&#xd;&#xa;    period: float,&#xd;&#xa;    phase: float,&#xd;&#xa;) -> np.array:&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    Mathematical description of a slopeed sine function for use in curve fitting.&#xd;&#xa;&#xd;&#xa;    Intercept and slope parameters determined by fitting a straight line and&#xd;&#xa;    substituting the values using functools.partial.&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    return amplitude * np.sin(2 * math.pi * period * x + phase) + intercept + x * slope&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;def sin_fit(x: np.array, y: np.array, intercept: float, slope: float) -> dict:&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    Determine sine function fit parameters amplitude, period and phase.&#xd;&#xa;&#xd;&#xa;    The period of the sine function is the parameter of interest. It is returned&#xd;&#xa;    in units of years.&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    guesses = (&#xd;&#xa;        (np.max(y) - np.min(y)) / 2,  # amplitude [mm]&#xd;&#xa;        1,  # period [years]&#xd;&#xa;        0,  # phase shift [years]&#xd;&#xa;    )&#xd;&#xa;    try:&#xd;&#xa;        fit_func = functools.partial(sin_estimator, intercept, slope)&#xd;&#xa;        par, cov = curve_fit(fit_func, x, y, p0=guesses)&#xd;&#xa;        std = np.sqrt(np.diag(cov))&#xd;&#xa;    except (RuntimeError, ValueError):&#xd;&#xa;        par = np.ones(3) * np.nan&#xd;&#xa;        std = np.ones(3) * np.nan&#xd;&#xa;&#xd;&#xa;    amplitude = Param(val=par[0], stddev=std[0])&#xd;&#xa;    period = Param(val=par[1], stddev=std[1])&#xd;&#xa;    phase = Param(val=par[2], stddev=std[2])&#xd;&#xa;&#xd;&#xa;    return amplitude, period, phase&#xd;&#xa;&#xd;&#xa;con = sqlite3.connect(DB)&#xd;&#xa;cursor = con.cursor()&#xd;&#xa;&#xd;&#xa;sql = 'SELECT time, value FROM ts_point_cal WHERE code = &quot;{code}&quot;'.format(code=CODE)&#xd;&#xa;cursor.execute(sql)&#xd;&#xa;time_series = cursor.fetchall()&#xd;&#xa;&#xd;&#xa;x = np.array([ts[0] for ts in time_series])&#xd;&#xa;y = np.array([ts[1] for ts in time_series])&#xd;&#xa;I = x > 2016.083&#xd;&#xa;&#xd;&#xa;slope, intercept, r_value, _, _ = linregress(x, y)&#xd;&#xa;slope_trunc, intercept_trunc, r_value_trunc, _, _ = linregress(x[I], y[I])&#xd;&#xa;amplitude, period, phase = sin_fit(x[I], y[I], intercept_trunc, slope_trunc)&#xd;&#xa;&#xd;&#xa;fig, ax = plt.subplots()&#xd;&#xa;ax.plot(x, y, &quot;g.&quot;, color=&quot;lightgrey&quot;)&#xd;&#xa;ax.plot(x[I], y[I], &quot;k.&quot;, label=&quot;Observations, n={n}&quot;.format(n=len(x)))&#xd;&#xa;ax.plot(x, intercept + slope * x, &quot;r-&quot;, label=f&quot;Linear fit: v={slope:.2f} mm/yr, r={r_value:.2f}&quot;)&#xd;&#xa;ax.plot(x[I], intercept_trunc + slope_trunc * x[I], &quot;b-&quot;, label=f&quot;Truncated linear fit: v={slope_trunc:.2f} mm/yr, r={r_value_trunc:.2f}&quot;)&#xd;&#xa;sin_plot = functools.partial(sin_estimator, intercept, slope)&#xd;&#xa;ax.plot(&#xd;&#xa;    x[I],&#xd;&#xa;    sin_plot(x[I], amplitude.val, period.val, phase.val),&#xd;&#xa;    &quot;y-&quot;,&#xd;&#xa;    label=f&quot;Sinusoidal fit, perid={period.val:.2f} yr +/- {period.stddev:.2f} yr&quot;,&#xd;&#xa;)&#xd;&#xa;ax.legend()&#xd;&#xa;plt.title(&quot;Calibrated &quot; + CODE)&#xd;&#xa;plt.xlabel(&quot;Time [years]&quot;)&#xd;&#xa;plt.ylabel(&quot;Displacement [mm]&quot;)&#xd;&#xa;plt.grid()&#xd;&#xa;&#xd;&#xa;plt.show()&#xd;&#xa;&#xd;&#xa;" notificationMessage="" isEnabledOnlyWhenEditable="0" capture="0" id="{27f573d1-0371-43cf-b644-7a6a3c3ee098}" type="1" name="Plot time series calibrated">
-      <actionScope id="Feature"/>
+    <actionsetting shortTitle="plot calibrated" icon="" action="import sqlite3&#xd;&#xa;import math&#xd;&#xa;import functools&#xd;&#xa;from collections import namedtuple&#xd;&#xa;&#xd;&#xa;import numpy as np&#xd;&#xa;from scipy.optimize import curve_fit&#xd;&#xa;from scipy.stats import linregress&#xd;&#xa;import matplotlib.pyplot as plt&#xd;&#xa;&#xd;&#xa;Param = namedtuple(&quot;Param&quot;, [&quot;val&quot;, &quot;stddev&quot;])&#xd;&#xa;&#xd;&#xa;DB = r'F:\SDFE\FAELLESOPGAVER\Vert_landbev\Tjeneste\Leverancer\AnalyseData\ts.gpkg'&#xd;&#xa;&#xd;&#xa;def sin_estimator(&#xd;&#xa;    intercept: float,&#xd;&#xa;    slope: float,&#xd;&#xa;    x: np.array,&#xd;&#xa;    amplitude: float,&#xd;&#xa;    period: float,&#xd;&#xa;    phase: float,&#xd;&#xa;) -> np.array:&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    Mathematical description of a slopeed sine function for use in curve fitting.&#xd;&#xa;&#xd;&#xa;    Intercept and slope parameters determined by fitting a straight line and&#xd;&#xa;    substituting the values using functools.partial.&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    return amplitude * np.sin(2 * math.pi * period * x + phase) + intercept + x * slope&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;def sin_fit(x: np.array, y: np.array, intercept: float, slope: float) -> dict:&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    Determine sine function fit parameters amplitude, period and phase.&#xd;&#xa;&#xd;&#xa;    The period of the sine function is the parameter of interest. It is returned&#xd;&#xa;    in units of years.&#xd;&#xa;    &quot;&quot;&quot;&#xd;&#xa;    guesses = (&#xd;&#xa;        (np.max(y) - np.min(y)) / 2,  # amplitude [mm]&#xd;&#xa;        1,  # period [years]&#xd;&#xa;        0,  # phase shift [years]&#xd;&#xa;    )&#xd;&#xa;    try:&#xd;&#xa;        fit_func = functools.partial(sin_estimator, intercept, slope)&#xd;&#xa;        par, cov = curve_fit(fit_func, x, y, p0=guesses)&#xd;&#xa;        std = np.sqrt(np.diag(cov))&#xd;&#xa;    except (RuntimeError, ValueError):&#xd;&#xa;        par = np.ones(3) * np.nan&#xd;&#xa;        std = np.ones(3) * np.nan&#xd;&#xa;&#xd;&#xa;    amplitude = Param(val=par[0], stddev=std[0])&#xd;&#xa;    period = Param(val=par[1], stddev=std[1])&#xd;&#xa;    phase = Param(val=par[2], stddev=std[2])&#xd;&#xa;&#xd;&#xa;    return amplitude, period, phase&#xd;&#xa;&#xd;&#xa;def plot_2d(db, calibrated, code):&#xd;&#xa;    con = sqlite3.connect(db)&#xd;&#xa;    cursor = con.cursor()&#xd;&#xa;&#xd;&#xa;    if calibrated:&#xd;&#xa;        y_component = 'vert_cal'&#xd;&#xa;    else:&#xd;&#xa;        y_component = 'vert'&#xd;&#xa;&#xd;&#xa;    sql = f'SELECT time, east, {y_component} FROM ts_2d WHERE code = &quot;{code}&quot;'&#xd;&#xa;    cursor.execute(sql)&#xd;&#xa;    time_series = cursor.fetchall()&#xd;&#xa;&#xd;&#xa;    t = np.array([ts[0] for ts in time_series])&#xd;&#xa;    hor = np.array([ts[1] for ts in time_series])&#xd;&#xa;    ver = np.array([ts[2] for ts in time_series])&#xd;&#xa;&#xd;&#xa;    hor_slope, hor_intercept, hor_r_value, _, _ = linregress(t, hor)&#xd;&#xa;    ver_slope, ver_intercept, ver_r_value, _, _ = linregress(t, ver)&#xd;&#xa;&#xd;&#xa;    fig, ax = plt.subplots()&#xd;&#xa;    ax.plot(t, hor, &quot;2&quot;, color=&quot;salmon&quot;, label=&quot;Horizontal observations, n={n}&quot;.format(n=len(t)))&#xd;&#xa;    ax.plot(t, hor_intercept + hor_slope * t, &quot;r-&quot;, label=f&quot;Linear fit (horizontal): v={hor_slope:.2f} mm/yr, r={hor_r_value:.2f}&quot;)&#xd;&#xa;    ax.plot(t, ver, &quot;1&quot;, color=&quot;cornflowerblue&quot;, label=&quot;Vertical observations, n={n}&quot;.format(n=len(t)))&#xd;&#xa;    ax.plot(t, ver_intercept + ver_slope * t, &quot;b-&quot;, label=f&quot;Linear fit (vertical): v={ver_slope:.2f} mm/yr, r={ver_r_value:.2f}&quot;)&#xd;&#xa;&#xd;&#xa;    ax.legend()&#xd;&#xa;    plt.title(&quot;2D&quot; + (&quot; calibrated&quot; if calibrated else &quot;&quot;) + f&quot;: {code}&quot;)&#xd;&#xa;    plt.xlabel(&quot;Time [years]&quot;)&#xd;&#xa;    plt.ylabel(&quot;Displacement [mm]&quot;)&#xd;&#xa;    plt.grid()&#xd;&#xa;&#xd;&#xa;    plt.show()&#xd;&#xa;    &#xd;&#xa;plot_2d(DB, True, &quot;[%CODE%]&quot;)" notificationMessage="" isEnabledOnlyWhenEditable="0" capture="0" id="{79af20df-4fe2-4379-b240-7bd413103119}" type="1" name="Plot time series 2D calibrated">
       <actionScope id="Canvas"/>
+      <actionScope id="Feature"/>
     </actionsetting>
   </attributeactions>
   <attributetableconfig actionWidgetStyle="dropDown" sortExpression="&quot;fid&quot;" sortOrder="0">
