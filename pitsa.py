@@ -1,12 +1,5 @@
 """
 PITSA - Probabilistic InSAR Time Series Analysis
-
-Interesting points:
-
-    A1IRVRL
-    ALJ6EB9
-    A1JDBD1
-
 """
 import math
 import re
@@ -38,22 +31,19 @@ POINT_SCHEMA = {
     "geometry": "Point",
     "properties": {
         "CODE": "str:7",  # Point ID
-        "HEIGHT": "float:7.1",  # Height above ellipsoid
-        "H_STDEV": "float:7.1",  # Standard deviation of HEIGHT
+        "HEIGHT": "float:6.1",  # Height above ellipsoid
+        "H_STDEV": "float:6.1",  # Standard deviation of HEIGHT
         "TRACK_NO": "int:5",  # Track number
         "DIR": "str:1",  # Direction, ascending (A) or descending (D)
-        "VEL": "float:6.1",  # Line of Sight velocity
-        "V_STDEV": "float:6.1",  # LoS vel. standard deviation
-        "VEL_VERT": "float:6.1",
+        "VEL": "float:5.1",  # Line of Sight velocity
+        "V_STDEV": "float:5.1",  # LoS vel. standard deviation
+        "COHERENCE": "float:3.2",  # Coherence of measuring point
+        "EFF_AREA": "int:5",  # Area of measuring point (0 for pixel size 5 m x 20 m)
+        "ER_BAR": "float:8.6",  # Average standard deviation of the deformation time series [mm]
+        "LOS_H": "float:5.3",
+        "VEL_VERT": "float:5.1",
         "VEL_CAL": "float:6.1",  # LoS vel. calibrated with GNSS-stations
         "VEL_STDEV_CAL": "float:6.1",  # Standard deviation of calibrated LoS vel.
-        "COHERENCE": "float:4.2",  # Coherence of measuring point
-        "EFF_AREA": "int:5",  # Area of measuring point (0 for pixel size 5 m x 20 m)
-        "ADI": "float:9.6",  # Amplitude dispersion index
-        "VEL_TRUNC": "float:6.1",
-        "V_R2_TRUNC": "float:6.1",
-        "VEL_CAL_TRUNC": "float:6.1",
-        "V_R2_CAL_TRUNC": "float:6.1",
         "PERIOD": "float:6.1",
         "PERIOD_STDEV": "float:6.1",
     },
@@ -92,7 +82,6 @@ TS_2D_SCHEMA = {
         "VERT_CAL": "float",  # Value of calibrated vertical time series
     },
 }
-
 
 def sin_estimator(
     intercept: float, slope: float, x: np.array, amplitude: float, period: float, phase: float
@@ -142,7 +131,7 @@ def parse_dates(f: dict) -> tuple:
     return [decimalyear(date(key)) for key in f["properties"] if key.startswith("D")]
 
 
-def calc_stats(x: np.array, y_raw: np.array, y_cal: np.array) -> tuple:
+def calc_periodicity(x: np.array, y: np.array) -> tuple:
     """
     Calculate statistics for raw and calibrated time series.
 
@@ -150,13 +139,10 @@ def calc_stats(x: np.array, y_raw: np.array, y_cal: np.array) -> tuple:
     as well as a sinusoidal fit on the raw time series.
     """
 
-    s_raw, i_raw, r_raw, _, _ = linregress(x, y_raw)
-    s_cal, _, r_cal, _, _ = linregress(x, y_cal)
-    amplitude, period, phase = sin_fit(x, y_raw, i_raw, s_raw)
+    s_raw, i_raw, r_raw, _, _ = linregress(x, y)
+    amplitude, period, phase = sin_fit(x, y, i_raw, s_raw)
 
-    stats = (s_raw, r_raw ** 2, s_cal, r_cal ** 2, period.val, period.stddev)
-
-    return stats
+    return (period.val, period.stddev)
 
 
 def add_los_data(basedir: Path, data_source: ogr.DataSource, ts_source: sqlite3.Connection):
@@ -170,10 +156,9 @@ def add_los_data(basedir: Path, data_source: ogr.DataSource, ts_source: sqlite3.
 
     for raw_shp, cal_shp in zip(basedir["raw"], basedir["cal"]):
         with fiona.open(str(raw_shp), "r") as raw, fiona.open(str(cal_shp), "r") as cal:
-            track_no = re.match(".*_T(\d*).*", raw_shp.stem)[1]
-            track_dir = re.match(".*_.*_T\d*_(\D)_.*", raw_shp.stem)[1]
+            track_no = re.match("LOS_(\d*)[A|D].*", raw_shp.stem)[1]
+            track_dir = re.match(".*\d*(\D).*", raw_shp.stem)[1]
             time_series_dates = np.array(parse_dates(raw.schema))
-            I = time_series_dates > 2016.083
             data_source.StartTransaction()
             with click.progressbar(
                 raw, label="Track: {}, Dir: {}".format(track_no, track_dir)
@@ -192,12 +177,13 @@ def add_los_data(basedir: Path, data_source: ogr.DataSource, ts_source: sqlite3.
                     feature.SetField("DIR", track_dir)
                     feature.SetField("VEL", fr["properties"]["VEL"])
                     feature.SetField("V_STDEV", fr["properties"]["V_STDEV"])
+                    feature.SetField("COHERENCE", fr["properties"]["COHERENCE"])
+                    feature.SetField("ER_BAR", fr["properties"]["ER_BAR"])
+                    feature.SetField("EFF_AREA", fr["properties"]["EFF_AREA"])
+                    feature.SetField("LOS_H", fr["properties"]["LOS_H"])
                     feature.SetField("VEL_VERT", fr["properties"]["VEL_VERT"])
                     feature.SetField("VEL_CAL", fc["properties"]["VEL"])
                     feature.SetField("VEL_STDEV_CAL", fc["properties"]["V_STDEV"])
-                    feature.SetField("COHERENCE", fr["properties"]["COHERENCE"])
-                    feature.SetField("EFF_AREA", fr["properties"]["EFF_AREA"])
-                    feature.SetField("ADI", fr["properties"]["ADI"])
 
                     # Add statistics
                     raw_y = np.array([v for k, v in fr["properties"].items() if k.startswith("D")])
@@ -209,13 +195,9 @@ def add_los_data(basedir: Path, data_source: ogr.DataSource, ts_source: sqlite3.
                         cur.executemany(sql, zip(time_series_dates, raw_y, cal_y))
                         ts_source.commit()
 
-                    stats = calc_stats(time_series_dates[I], raw_y[I], cal_y[I])
-                    feature.SetField("VEL_TRUNC", stats[0])
-                    feature.SetField("V_R2_TRUNC", stats[1])
-                    feature.SetField("VEL_CAL_TRUNC", stats[2])
-                    feature.SetField("V_R2_CAL_TRUNC", stats[3])
-                    feature.SetField("PERIOD", stats[4])
-                    feature.SetField("PERIOD_STDEV", stats[5])
+                    (periodicity, periodicity_stddev) = calc_periodicity(time_series_dates, raw_y)
+                    feature.SetField("PERIOD", periodicity)
+                    feature.SetField("PERIOD_STDEV", periodicity_stddev)
 
                     feature.SetGeometry(point)
                     feature.SetFID(point_lyr.GetFeatureCount())
@@ -313,11 +295,8 @@ def pitsa(ctx, start, stop):
 @click.argument("code")
 @click.pass_context
 def plotlos(ctx, calibrated, database, code):
-    """Plot time series and related fits for a given point
-
-    Example points:
-
-        KHZAAYE
+    """
+    Plot time series and related fits for a given point
     """
     plot_los(database, calibrated, code)
 
@@ -327,11 +306,8 @@ def plotlos(ctx, calibrated, database, code):
 @click.argument("code")
 @click.pass_context
 def plot2d(ctx, calibrated, database, code):
-    """Plot time series and related fits for a given point
-
-    Example points:
-
-        B36FXB4
+    """
+    Plot time series and related fits for a given point
     """
     plot_2d(database, calibrated, code)
 
@@ -382,9 +358,9 @@ def createdb(ctx, basedir, data, ts):
     # prepare list of directories and files
     base = Path(basedir) / Path("2D")
     dirs["2D"] = {
-        "east": base / Path("DENMARK_SNT_EAST_IT902B3E.shp"),
-        "vert": base / Path("DENMARK_SNT_VERT_IT902B1V.shp"),
-        "cal": base / Path("DENMARK_SNT_VERT_CAL_UPLIFT_IT902B2V.shp"),
+        "east": base / Path("EAST.shp"),
+        "vert": base / Path("VERTICAL.shp"),
+        "cal": base / Path("VERTICAL_CAL_GNSS.shp"),
     }
 
     data_source = ogr.Open(data, 1)
