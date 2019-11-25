@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 Param = namedtuple("Param", ["val", "stddev"])
 
-DB = r'F:\SDFE\FAELLESOPGAVER\Vert_landbev\Tjeneste\Leverancer\AnalyseData\ts.gpkg'
+DB = r'F:\SDFE\FAELLESOPGAVER\Vert_landbev\Tjeneste\Leverancer\AnalyseData\2019\ts.gpkg'
 
 def sin_estimator(
     intercept: float,
