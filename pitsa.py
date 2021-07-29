@@ -83,8 +83,14 @@ TS_2D_SCHEMA = {
     },
 }
 
+
 def sin_estimator(
-    intercept: float, slope: float, x: np.array, amplitude: float, period: float, phase: float
+    intercept: float,
+    slope: float,
+    x: np.array,
+    amplitude: float,
+    period: float,
+    phase: float,
 ) -> np.array:
     """
     Mathematical description of a sloped sine function for use in curve fitting.
@@ -157,7 +163,8 @@ def add_los_data(basedir: Path, data_source: ogr.DataSource, ts_source: sqlite3.
     for raw_shp, cal_shp in zip(basedir["raw"], basedir["cal"]):
         with fiona.open(str(raw_shp), "r") as raw, fiona.open(str(cal_shp), "r") as cal:
             track_no = re.match("LOS_(\d*)[A|D].*", raw_shp.stem)[1]
-            track_dir = re.match(".*\d*(\D).*", raw_shp.stem)[1]
+            match = re.match("LOS_\d{1,3}(\D)(_\d_)?", raw_shp.stem)
+            track_dir = re.match("LOS_\d{1,3}(\D)(_\d_)?", raw_shp.stem)[1]
             time_series_dates = np.array(parse_dates(raw.schema))
             data_source.StartTransaction()
             with click.progressbar(
@@ -207,6 +214,9 @@ def add_los_data(basedir: Path, data_source: ogr.DataSource, ts_source: sqlite3.
                 data_source.CommitTransaction()
                 data_source.SyncToDisk()
 
+    if ts_source:
+        ts_source.cursor().execute("VACUUM")
+
 
 def add_2d_data(basedir: Path, data_source: ogr.DataSource, ts_source: sqlite3.Connection):
     """Add 2D grid data points and matching timeseries"""
@@ -235,11 +245,11 @@ def add_2d_data(basedir: Path, data_source: ogr.DataSource, ts_source: sqlite3.C
                 feature = ogr.Feature(grid_lyr.GetLayerDefn())
                 feature.SetField("CODE", fv["properties"]["CODE"])
                 feature.SetField("VEL_V", fv["properties"]["VEL_V"])
-                feature.SetField("VEL_STD_V", fv["properties"]["V_STD_V"])
+                feature.SetField("VEL_STD_V", fv["properties"]["V_STDEV_V"])
                 feature.SetField("VEL_E", fe["properties"]["VEL_E"])
-                feature.SetField("VEL_STD_E", fe["properties"]["V_STD_E"])
+                feature.SetField("VEL_STD_E", fe["properties"]["V_STDEV_E"])
                 feature.SetField("VEL_V_NOUPLIFT", fc["properties"]["VEL_V"])
-                feature.SetField("VEL_STD_V_NOUPLIFT", fc["properties"]["V_STD_V"])
+                feature.SetField("VEL_STD_V_NOUPLIFT", fc["properties"]["V_STDEV_V"])
 
                 east_y = np.array(
                     [value for key, value in fe["properties"].items() if key.startswith("D")]
@@ -264,6 +274,9 @@ def add_2d_data(basedir: Path, data_source: ogr.DataSource, ts_source: sqlite3.C
 
         data_source.CommitTransaction()
         data_source.SyncToDisk()
+
+    if ts_source:
+        ts_source.cursor().execute("VACUUM")
 
 
 @click.group()
@@ -300,6 +313,7 @@ def plotlos(ctx, calibrated, database, code):
     """
     plot_los(database, calibrated, code)
 
+
 @pitsa.command()
 @click.option("-c", "--calibrated", is_flag=True, help="Plot based on calibrated values")
 @click.argument("database", type=click.Path(exists=True))
@@ -316,7 +330,9 @@ def plot2d(ctx, calibrated, database, code):
 @click.argument("basedir", type=click.Path(exists=True))
 @click.argument("data", type=click.Path(exists=False))
 @click.option(
-    "--ts", type=click.Path(exists=False), help="Path to Geopackage where times series are stored"
+    "--ts",
+    type=click.Path(exists=False),
+    help="Path to Geopackage where times series are stored",
 )
 @click.pass_context
 def createdb(ctx, basedir, data, ts):
@@ -350,17 +366,17 @@ def createdb(ctx, basedir, data, ts):
 
     for raw_shp in base.iterdir():
         if raw_shp.suffix == ".shp":
-            if "_CAL_GNSS" not in raw_shp.stem:
+            if "_CAL" not in raw_shp.stem:
                 dirs[directory]["raw"].append(raw_shp)
-                cal_shp = raw_shp.parents[0] / Path(raw_shp.stem + "_CAL_GNSS.shp")
+                cal_shp = raw_shp.parents[0] / Path(raw_shp.stem + "_CAL.shp")
                 dirs[directory]["cal"].append(cal_shp)
 
     # prepare list of directories and files
     base = Path(basedir) / Path("2D")
     dirs["2D"] = {
         "east": base / Path("EAST.shp"),
-        "vert": base / Path("VERTICAL.shp"),
-        "cal": base / Path("VERTICAL_CAL_GNSS.shp"),
+        "vert": base / Path("VERT.shp"),
+        "cal": base / Path("VERT_CAL_GNSS.shp"),
     }
 
     data_source = ogr.Open(data, 1)
