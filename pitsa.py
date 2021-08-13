@@ -65,23 +65,53 @@ GRID_SCHEMA = {
 TS_LOS_SCHEMA = {
     "geometry": "None",
     "properties": {
-        "CODE": "str:7",  # Point ID
+        "CODE_KEY": "int",  # "primary" key for
         "TIME": "float",  # Decimal year of time series entry point
         "VALUE": "float",  # Value of time series
         "CAL_VALUE": "float",  # Calibrated value of time series
     },
 }
 
-TS_2D_SCHEMA = {
+# primary key stored in Geopackage default FID field
+TS_LOS_CODES = {
     "geometry": "None",
     "properties": {
         "CODE": "str:7",  # Point ID
+    },
+}
+
+SQL_VIEW_LOS = """
+CREATE VIEW ts_los AS
+    SELECT ts.fid, code.code, ts.time, ts.value, ts.cal_value
+    FROM ts_los_t ts JOIN ts_los_codes code
+    ON code.fid=ts.code_key
+"""
+
+TS_2D_SCHEMA = {
+    "geometry": "None",
+    "properties": {
+        "CODE_KEY": "int",  # "primary" key for
         "TIME": "float",  # Decimal year of time series entry point
         "EAST": "float",  # Value of east time series
         "VERT": "float",  # Value of vertical time series
         "VERT_CAL": "float",  # Value of calibrated vertical time series
     },
 }
+
+# primary key stored in Geopackage default FID field
+TS_2D_CODES = {
+    "geometry": "None",
+    "properties": {
+        "CODE": "str:7",  # Point ID
+    },
+}
+
+SQL_VIEW_2D = """
+CREATE VIEW ts_2d AS
+    SELECT ts.fid, code.code, ts.time, ts.east, ts.vert, ts.vert_cal
+    FROM ts_2d_t ts
+    JOIN ts_2d_codes code ON code.fid=ts.code_key
+"""
 
 
 def sin_estimator(
@@ -160,6 +190,7 @@ def add_los_data(basedir: Path, data_source: ogr.DataSource, ts_source: sqlite3.
         cur.execute("PRAGMA synchronous = OFF")
         cur.execute("BEGIN TRANSACTION")
 
+    key = 0
     for raw_shp, cal_shp in zip(basedir["raw"], basedir["cal"]):
         with fiona.open(str(raw_shp), "r") as raw, fiona.open(str(cal_shp), "r") as cal:
             track_no = re.match("LOS_(\d*)[A|D].*", raw_shp.stem)[1]
@@ -198,8 +229,14 @@ def add_los_data(basedir: Path, data_source: ogr.DataSource, ts_source: sqlite3.
 
                     if ts_source:
                         code = fr["properties"]["CODE"]
-                        sql = f"INSERT INTO ts_los(code, time, value, cal_value) VALUES ('{code}', ?, ?, ?)"
-                        cur.executemany(sql, zip(time_series_dates, raw_y, cal_y))
+                        # Geopackage layers has internal primary key 'fid' that autoincrements
+                        # and is therefore the same as this key variable. Saving a bit of space
+                        # by not repeating it.
+                        sql_code = f"INSERT INTO ts_los_codes(code) VALUES ('{code}')"
+                        cur.execute(sql_code)
+                        key = key + 1
+                        sql_ts = f"INSERT INTO ts_los_t(code_key, time, value, cal_value) VALUES ('{key}', ?, ?, ?)"
+                        cur.executemany(sql_ts, zip(time_series_dates, raw_y, cal_y))
                         ts_source.commit()
 
                     (periodicity, periodicity_stddev) = calc_periodicity(time_series_dates, raw_y)
@@ -214,9 +251,6 @@ def add_los_data(basedir: Path, data_source: ogr.DataSource, ts_source: sqlite3.
                 data_source.CommitTransaction()
                 data_source.SyncToDisk()
 
-    if ts_source:
-        ts_source.cursor().execute("VACUUM")
-
 
 def add_2d_data(basedir: Path, data_source: ogr.DataSource, ts_source: sqlite3.Connection):
     """Add 2D grid data points and matching timeseries"""
@@ -229,6 +263,8 @@ def add_2d_data(basedir: Path, data_source: ogr.DataSource, ts_source: sqlite3.C
     east_shp = basedir["east"]
     vert_shp = basedir["vert"]
     cal_shp = basedir["cal"]
+
+    key = 0
 
     with fiona.open(str(east_shp), "r") as east, fiona.open(str(vert_shp), "r") as vert, fiona.open(
         str(cal_shp), "r"
@@ -251,19 +287,19 @@ def add_2d_data(basedir: Path, data_source: ogr.DataSource, ts_source: sqlite3.C
                 feature.SetField("VEL_V_NOUPLIFT", fc["properties"]["VEL_V"])
                 feature.SetField("VEL_STD_V_NOUPLIFT", fc["properties"]["V_STDEV_V"])
 
-                east_y = np.array(
-                    [value for key, value in fe["properties"].items() if key.startswith("D")]
-                )
-                vert_y = np.array(
-                    [value for key, value in fv["properties"].items() if key.startswith("D")]
-                )
-                cal_y = np.array(
-                    [value for key, value in fc["properties"].items() if key.startswith("D")]
-                )
+                east_y = np.array([v for k, v in fe["properties"].items() if k.startswith("D")])
+                vert_y = np.array([v for k, v in fv["properties"].items() if k.startswith("D")])
+                cal_y = np.array([v for k, v in fc["properties"].items() if k.startswith("D")])
 
                 if ts_source:
                     code = fv["properties"]["CODE"]
-                    sql = f"INSERT INTO ts_2d(code, time, east, vert, vert_cal) VALUES ('{code}', ?, ?, ?, ?)"
+                    key = key + 1
+                    # Geopackage layers has internal primary key 'fid' that autoincrements
+                    # and is therefore the same as this key variable. Saving a bit of space
+                    # by not repeating it.
+                    sql_code = f"INSERT INTO ts_2d_codes(code) VALUES ('{code}')"
+                    cur.execute(sql_code)
+                    sql = f"INSERT INTO ts_2d_t(code_key, time, east, vert, vert_cal) VALUES ('{key}', ?, ?, ?, ?)"
                     cur.executemany(sql, zip(time_series_dates, east_y, vert_y, cal_y))
                     ts_source.commit()
 
@@ -274,9 +310,6 @@ def add_2d_data(basedir: Path, data_source: ogr.DataSource, ts_source: sqlite3.C
 
         data_source.CommitTransaction()
         data_source.SyncToDisk()
-
-    if ts_source:
-        ts_source.cursor().execute("VACUUM")
 
 
 @click.group()
@@ -353,10 +386,16 @@ def createdb(ctx, basedir, data, ts):
         pass
 
     if ts:
-        with fiona.open(ts, "w", driver="GPKG", layer="TS_2D", schema=TS_2D_SCHEMA) as gpkg:
+        with fiona.open(ts, "w", driver="GPKG", layer="TS_2D_T", schema=TS_2D_SCHEMA) as gpkg:
             pass  # initialize time series database
 
-        with fiona.open(ts, "w", driver="GPKG", layer="TS_LOS", schema=TS_LOS_SCHEMA) as gpkg:
+        with fiona.open(ts, "w", driver="GPKG", layer="TS_2D_CODES", schema=TS_2D_CODES) as gpkg:
+            pass  # initialize time series database
+
+        with fiona.open(ts, "w", driver="GPKG", layer="TS_LOS_T", schema=TS_LOS_SCHEMA) as gpkg:
+            pass  # initialize time series database
+
+        with fiona.open(ts, "w", driver="GPKG", layer="TS_LOS_CODES", schema=TS_LOS_CODES) as gpkg:
             pass  # initialize time series database
 
     dirs = {}
@@ -392,10 +431,14 @@ def createdb(ctx, basedir, data, ts):
     if ts:
         con = sqlite3.connect(ts)
         cur = con.cursor()
-        click.secho("Building index for LOS timeseries")
-        cur.execute("CREATE INDEX ts_los_codes ON ts_los (code)")
-        click.secho("Building index for 2D timeseries")
-        cur.execute("CREATE INDEX ts_2d_codes ON ts_2d (code)")
+        click.secho("Building indices for LOS timeseries")
+        cur.execute("CREATE INDEX idx_ts_los_codes ON ts_los_codes (code)")
+        cur.execute("CREATE INDEX idx_ts_los_t_code_key ON ts_los_t (code_key)")
+        cur.execute(SQL_VIEW_LOS)
+        click.secho("Building indices for 2D timeseries")
+        cur.execute("CREATE INDEX idx_ts_2d_codes ON ts_2d_codes (code)")
+        cur.execute("CREATE INDEX idx_ts_2d_t_code_key ON ts_2d_t (code_key)")
+        cur.execute(SQL_VIEW_2D)
         con.commit()
 
 
